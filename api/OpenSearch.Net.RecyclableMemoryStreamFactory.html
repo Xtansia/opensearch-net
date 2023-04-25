@@ -80,6 +80,7 @@
             <article class="content wrap" id="_content" data-uid="OpenSearch.Net.RecyclableMemoryStreamFactory">
 
 
+
   <h1 id="OpenSearch_Net_RecyclableMemoryStreamFactory" data-uid="OpenSearch.Net.RecyclableMemoryStreamFactory" class="text-break">Class RecyclableMemoryStreamFactory
 </h1>
   <div class="markdown level0 summary"><p>A factory for creating memory streams using a recyclable pool of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.memorystream">MemoryStream</a> instances</p>
@@ -103,22 +104,22 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">object.GetType()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">object.MemberwiseClone()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">object.ReferenceEquals(object, object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">OpenSearch</span>.<a class="xref" href="OpenSearch.Net.html">Net</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.html">OpenSearch</a>.<a class="xref" href="OpenSearch.Net.html">Net</a></h6>
   <h6><strong>Assembly</strong>: OpenSearch.Net.dll</h6>
   <h5 id="OpenSearch_Net_RecyclableMemoryStreamFactory_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -184,12 +185,61 @@
   </span>
   <a id="OpenSearch_Net_RecyclableMemoryStreamFactory_Create_" data-uid="OpenSearch.Net.RecyclableMemoryStreamFactory.Create*"></a>
   <h4 id="OpenSearch_Net_RecyclableMemoryStreamFactory_Create" data-uid="OpenSearch.Net.RecyclableMemoryStreamFactory.Create">Create()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a memory stream</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public MemoryStream Create()</code></pre>
   </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.memorystream">MemoryStream</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RecyclableMemoryStreamFactory_Create_System_Byte___.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RecyclableMemoryStreamFactory.Create(System.Byte%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Xtansia/opensearch-net/blob/main/src/OpenSearch.Net/Providers/RecyclableMemoryStreamFactory.cs/#L62">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RecyclableMemoryStreamFactory_Create_" data-uid="OpenSearch.Net.RecyclableMemoryStreamFactory.Create*"></a>
+  <h4 id="OpenSearch_Net_RecyclableMemoryStreamFactory_Create_System_Byte___" data-uid="OpenSearch.Net.RecyclableMemoryStreamFactory.Create(System.Byte[])">Create(byte[])</h4>
+  <div class="markdown level1 summary"><p>Creates a memory stream with the bytes written to the stream</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MemoryStream Create(byte[] bytes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
+        <td><span class="parametername">bytes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
     <thead>
@@ -214,7 +264,8 @@
   </span>
   <a id="OpenSearch_Net_RecyclableMemoryStreamFactory_Create_" data-uid="OpenSearch.Net.RecyclableMemoryStreamFactory.Create*"></a>
   <h4 id="OpenSearch_Net_RecyclableMemoryStreamFactory_Create_System_Byte___System_Int32_System_Int32_" data-uid="OpenSearch.Net.RecyclableMemoryStreamFactory.Create(System.Byte[],System.Int32,System.Int32)">Create(byte[], int, int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a memory stream with the bytes written to the stream</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -262,53 +313,6 @@
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RecyclableMemoryStreamFactory_Create_System_Byte___.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RecyclableMemoryStreamFactory.Create(System.Byte%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Xtansia/opensearch-net/blob/main/src/OpenSearch.Net/Providers/RecyclableMemoryStreamFactory.cs/#L62">View Source</a>
-  </span>
-  <a id="OpenSearch_Net_RecyclableMemoryStreamFactory_Create_" data-uid="OpenSearch.Net.RecyclableMemoryStreamFactory.Create*"></a>
-  <h4 id="OpenSearch_Net_RecyclableMemoryStreamFactory_Create_System_Byte___" data-uid="OpenSearch.Net.RecyclableMemoryStreamFactory.Create(System.Byte[])">Create(byte[])</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MemoryStream Create(byte[] bytes)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
-        <td><span class="parametername">bytes</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.memorystream">MemoryStream</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="OpenSearch.Net.IMemoryStreamFactory.html">IMemoryStreamFactory</a>
@@ -317,6 +321,7 @@
   <div>
       <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
   </div>
+
 </article>
           </div>
 

@@ -80,6 +80,7 @@
             <article class="content wrap" id="_content" data-uid="OpenSearch.Client.IQueryStringQuery">
 
 
+
   <h1 id="OpenSearch_Client_IQueryStringQuery" data-uid="OpenSearch.Client.IQueryStringQuery" class="text-break">Interface IQueryStringQuery
 </h1>
   <div class="markdown level0 summary"><p>A query that uses a query parser in order to parse its content</p>
@@ -106,7 +107,7 @@
       <a class="xref" href="OpenSearch.Client.IQuery.html#OpenSearch_Client_IQuery_Name">IQuery.Name</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">OpenSearch</span>.<a class="xref" href="OpenSearch.Client.html">Client</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.html">OpenSearch</a>.<a class="xref" href="OpenSearch.Client.html">Client</a></h6>
   <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
   <h5 id="OpenSearch_Client_IQueryStringQuery_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -130,6 +131,39 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;allow_leading_wildcard&quot;)]
 bool? AllowLeadingWildcard { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryStringQuery_AnalyzeWildcard.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryStringQuery.AnalyzeWildcard%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Xtansia/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/QueryString/QueryStringQuery.cs/#L59">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryStringQuery_AnalyzeWildcard_" data-uid="OpenSearch.Client.IQueryStringQuery.AnalyzeWildcard*"></a>
+  <h4 id="OpenSearch_Client_IQueryStringQuery_AnalyzeWildcard" data-uid="OpenSearch.Client.IQueryStringQuery.AnalyzeWildcard">AnalyzeWildcard</h4>
+  <div class="markdown level1 summary"><p>By default, wildcards terms in a query are not analyzed.
+By setting this value to <code>true</code>, a best effort will be made to analyze those as well.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;analyze_wildcard&quot;)]
+bool? AnalyzeWildcard { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -174,39 +208,6 @@ string Analyzer { get; set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryStringQuery_AnalyzeWildcard.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryStringQuery.AnalyzeWildcard%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Xtansia/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/QueryString/QueryStringQuery.cs/#L59">View Source</a>
-  </span>
-  <a id="OpenSearch_Client_IQueryStringQuery_AnalyzeWildcard_" data-uid="OpenSearch.Client.IQueryStringQuery.AnalyzeWildcard*"></a>
-  <h4 id="OpenSearch_Client_IQueryStringQuery_AnalyzeWildcard" data-uid="OpenSearch.Client.IQueryStringQuery.AnalyzeWildcard">AnalyzeWildcard</h4>
-  <div class="markdown level1 summary"><p>By default, wildcards terms in a query are not analyzed.
-By setting this value to <code>true</code>, a best effort will be made to analyze those as well.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;analyze_wildcard&quot;)]
-bool? AnalyzeWildcard { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
         <td></td>
       </tr>
     </tbody>
@@ -941,6 +942,7 @@ TextQueryType? Type { get; set; }</code></pre>
   <div>
       <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
   </div>
+
 </article>
           </div>
 

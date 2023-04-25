@@ -80,6 +80,7 @@
             <article class="content wrap" id="_content" data-uid="OpenSearch.Client.AggregationVisitor">
 
 
+
   <h1 id="OpenSearch_Client_AggregationVisitor" data-uid="OpenSearch.Client.AggregationVisitor" class="text-break">Class AggregationVisitor
 </h1>
   <div class="markdown level0 summary"></div>
@@ -102,22 +103,22 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">object.GetType()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">object.MemberwiseClone()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">object.ReferenceEquals(object, object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">OpenSearch</span>.<a class="xref" href="OpenSearch.Client.html">Client</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.html">OpenSearch</a>.<a class="xref" href="OpenSearch.Client.html">Client</a></h6>
   <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
   <h5 id="OpenSearch_Client_AggregationVisitor_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -134,7 +135,8 @@
   </span>
   <a id="OpenSearch_Client_AggregationVisitor_Depth_" data-uid="OpenSearch.Client.AggregationVisitor.Depth*"></a>
   <h4 id="OpenSearch_Client_AggregationVisitor_Depth" data-uid="OpenSearch.Client.AggregationVisitor.Depth">Depth</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The current depth of the node being visited</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -164,7 +166,8 @@
   </span>
   <a id="OpenSearch_Client_AggregationVisitor_Scope_" data-uid="OpenSearch.Client.AggregationVisitor.Scope*"></a>
   <h4 id="OpenSearch_Client_AggregationVisitor_Scope" data-uid="OpenSearch.Client.AggregationVisitor.Scope">Scope</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Hints the relation with the parent, i.e aggregations contained inside a bucket aggregation will have AggregationVisitorScope.Bucket set.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -228,7 +231,8 @@
   </span>
   <a id="OpenSearch_Client_AggregationVisitor_Visit_" data-uid="OpenSearch.Client.AggregationVisitor.Visit*"></a>
   <h4 id="OpenSearch_Client_AggregationVisitor_Visit_OpenSearch_Client_IAggregation_" data-uid="OpenSearch.Client.AggregationVisitor.Visit(OpenSearch.Client.IAggregation)">Visit(IAggregation)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Visit every aggregation item just before they are visited by their specialized Visit() implementation</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -247,7 +251,8 @@
       <tr>
         <td><a class="xref" href="OpenSearch.Client.IAggregation.html">IAggregation</a></td>
         <td><span class="parametername">aggregation</span></td>
-        <td></td>
+        <td><p>The IAggregation object that will be visited</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -260,7 +265,8 @@
   </span>
   <a id="OpenSearch_Client_AggregationVisitor_Visit_" data-uid="OpenSearch.Client.AggregationVisitor.Visit*"></a>
   <h4 id="OpenSearch_Client_AggregationVisitor_Visit_OpenSearch_Client_IAggregationContainer_" data-uid="OpenSearch.Client.AggregationVisitor.Visit(OpenSearch.Client.IAggregationContainer)">Visit(IAggregationContainer)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Visit the aggregation container just before we dispatch into the aggregation it holds</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -2179,6 +2185,7 @@
   <div>
       <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
   </div>
+
 </article>
           </div>
 

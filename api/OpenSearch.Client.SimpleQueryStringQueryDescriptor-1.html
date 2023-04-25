@@ -80,6 +80,7 @@
             <article class="content wrap" id="_content" data-uid="OpenSearch.Client.SimpleQueryStringQueryDescriptor`1">
 
 
+
   <h1 id="OpenSearch_Client_SimpleQueryStringQueryDescriptor_1" data-uid="OpenSearch.Client.SimpleQueryStringQueryDescriptor`1" class="text-break">Class SimpleQueryStringQueryDescriptor&lt;T&gt;
 </h1>
   <div class="markdown level0 summary"><p>A query that uses the SimpleQueryParser to parse its context.
@@ -130,22 +131,22 @@ never throw an exception, and discards invalid parts of the query.</p>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">object.GetType()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">object.MemberwiseClone()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">object.ReferenceEquals(object, object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">OpenSearch</span>.<a class="xref" href="OpenSearch.Client.html">Client</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.html">OpenSearch</a>.<a class="xref" href="OpenSearch.Client.html">Client</a></h6>
   <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
   <h5 id="OpenSearch_Client_SimpleQueryStringQueryDescriptor_1_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -177,7 +178,9 @@ never throw an exception, and discards invalid parts of the query.</p>
   </span>
   <a id="OpenSearch_Client_SimpleQueryStringQueryDescriptor_1_Conditionless_" data-uid="OpenSearch.Client.SimpleQueryStringQueryDescriptor`1.Conditionless*"></a>
   <h4 id="OpenSearch_Client_SimpleQueryStringQueryDescriptor_1_Conditionless" data-uid="OpenSearch.Client.SimpleQueryStringQueryDescriptor`1.Conditionless">Conditionless</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the query is conditionless. A conditionless query is not serialized as part of the request
+sent to OpenSearch.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -199,57 +202,9 @@ never throw an exception, and discards invalid parts of the query.</p>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">OpenSearch.Client.QueryDescriptorBase&lt;OpenSearch.Client.SimpleQueryStringQueryDescriptor&lt;T&gt;, OpenSearch.Client.ISimpleQueryStringQuery&gt;.Conditionless</span></div>
+  <div><a class="xref" href="OpenSearch.Client.QueryDescriptorBase{OpenSearch.Client.SimpleQueryStringQueryDescriptor-1,OpenSearch.Client.ISimpleQueryStringQuery}.html#OpenSearch.Client.QueryDescriptorBase{OpenSearch.Client.SimpleQueryStringQueryDescriptor`1,OpenSearch.Client.ISimpleQueryStringQuery}.Conditionless">QueryDescriptorBase&lt;SimpleQueryStringQueryDescriptor&lt;T&gt;, ISimpleQueryStringQuery&gt;.Conditionless</a></div>
   <h3 id="methods">Methods
 </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SimpleQueryStringQueryDescriptor_1_Analyzer_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SimpleQueryStringQueryDescriptor%601.Analyzer(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Xtansia/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/SimpleQueryString/SimpleQueryStringQuery.cs/#L214">View Source</a>
-  </span>
-  <a id="OpenSearch_Client_SimpleQueryStringQueryDescriptor_1_Analyzer_" data-uid="OpenSearch.Client.SimpleQueryStringQueryDescriptor`1.Analyzer*"></a>
-  <h4 id="OpenSearch_Client_SimpleQueryStringQueryDescriptor_1_Analyzer_System_String_" data-uid="OpenSearch.Client.SimpleQueryStringQueryDescriptor`1.Analyzer(System.String)">Analyzer(string)</h4>
-  <div class="markdown level1 summary"><p>The analyzer name used to analyze the query</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimpleQueryStringQueryDescriptor&lt;T&gt; Analyzer(string analyzer)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">analyzer</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Client.SimpleQueryStringQueryDescriptor-1.html">SimpleQueryStringQueryDescriptor</a>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SimpleQueryStringQueryDescriptor_1_AnalyzeWildcard_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SimpleQueryStringQueryDescriptor%601.AnalyzeWildcard(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -280,6 +235,54 @@ By setting this value to <code>true</code>, a best effort will be made to analyz
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
         <td><span class="parametername">analyzeWildcard</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SimpleQueryStringQueryDescriptor-1.html">SimpleQueryStringQueryDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SimpleQueryStringQueryDescriptor_1_Analyzer_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SimpleQueryStringQueryDescriptor%601.Analyzer(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Xtansia/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/SimpleQueryString/SimpleQueryStringQuery.cs/#L214">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SimpleQueryStringQueryDescriptor_1_Analyzer_" data-uid="OpenSearch.Client.SimpleQueryStringQueryDescriptor`1.Analyzer*"></a>
+  <h4 id="OpenSearch_Client_SimpleQueryStringQueryDescriptor_1_Analyzer_System_String_" data-uid="OpenSearch.Client.SimpleQueryStringQueryDescriptor`1.Analyzer(System.String)">Analyzer(string)</h4>
+  <div class="markdown level1 summary"><p>The analyzer name used to analyze the query</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimpleQueryStringQueryDescriptor&lt;T&gt; Analyzer(string analyzer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">analyzer</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -902,6 +905,7 @@ This allows to use a field that has a different analysis chain for exact matchin
   <div>
       <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
   </div>
+
 </article>
           </div>
 
