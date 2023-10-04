@@ -1,5 +1,4 @@
 {
-  "homepages": [],
   "source_base_path": "/home/runner/work/opensearch-net/opensearch-net/docs",
   "xrefmap": "xrefmap.yml",
   "files": [
@@ -26773,6 +26772,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.ClusterHealthLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.ClusterHealthLevel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.ClusterRerouteMetric.yml",
       "output": {
         ".html": {
@@ -29842,7 +29851,6 @@
       "version": ""
     }
   ],
-  "version_info": {},
   "groups": [
     {
       "xrefmap": "xrefmap.yml"
