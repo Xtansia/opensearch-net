@@ -145,7 +145,7 @@ jobs:
             opensearch-*/logs/*
 
       - name: Upload test report
-        if: failure()
+        # if: failure()
         uses: actions/upload-artifact@v3
         with:
           name: report-yaml-unreleased-${{ matrix.opensearch_ref }}
