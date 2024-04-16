@@ -176,6 +176,9 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls IndicesAddBlock = new(new[] { "{index}/_block/{block}" });
 
+        internal static readonly ApiUrls IndicesAnalyze =
+            new(new[] { "_analyze", "{index}/_analyze" });
+
         internal static readonly ApiUrls IndicesDeleteComposableTemplate =
             new(new[] { "_index_template/{name}" });
 

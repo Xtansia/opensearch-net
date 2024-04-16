@@ -51,19 +51,6 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.IndicesApi
 {
-	///<summary>Request options for Analyze <para></para></summary>
-	public class AnalyzeRequestParameters : RequestParameters<AnalyzeRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
-		public override bool SupportsBody => true;
-		///<summary>The name of the index to scope the operation</summary>
-		public string IndexQueryString
-		{
-			get => Q<string>("index");
-			set => Q("index", value);
-		}
-	}
-
 	///<summary>Request options for ClearCache <para></para></summary>
 	public class ClearCacheRequestParameters : RequestParameters<ClearCacheRequestParameters>
 	{

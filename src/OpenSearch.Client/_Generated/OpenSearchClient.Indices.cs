@@ -119,6 +119,47 @@ namespace OpenSearch.Client.Specification.IndicesApi
             );
 
         /// <summary>
+        /// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/">https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</a>
+        /// </summary>
+        public AnalyzeResponse Analyze(Func<AnalyzeDescriptor, IAnalyzeRequest> selector = null) =>
+            Analyze(selector.InvokeOrDefault(new AnalyzeDescriptor()));
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/">https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</a>
+        /// </summary>
+        public Task<AnalyzeResponse> AnalyzeAsync(
+            Func<AnalyzeDescriptor, IAnalyzeRequest> selector = null,
+            CancellationToken ct = default
+        ) => AnalyzeAsync(selector.InvokeOrDefault(new AnalyzeDescriptor()), ct);
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/">https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</a>
+        /// </summary>
+        public AnalyzeResponse Analyze(IAnalyzeRequest request) =>
+            DoRequest<IAnalyzeRequest, AnalyzeResponse>(request, request.RequestParameters);
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/">https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</a>
+        /// </summary>
+        public Task<AnalyzeResponse> AnalyzeAsync(
+            IAnalyzeRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IAnalyzeRequest, AnalyzeResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>

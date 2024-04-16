@@ -109,6 +109,20 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
+    /// <summary>Request options for Analyze <para>https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</para></summary>
+    public partial class AnalyzeRequestParameters : RequestParameters<AnalyzeRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>The name of the index to scope the operation.</summary>
+        public string Index
+        {
+            get => Q<string>("index");
+            set => Q("index", value);
+        }
+    }
+
     /// <summary>Request options for DeleteComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
     public partial class DeleteComposableIndexTemplateRequestParameters
         : RequestParameters<DeleteComposableIndexTemplateRequestParameters>

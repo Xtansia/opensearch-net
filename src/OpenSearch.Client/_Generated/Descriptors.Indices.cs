@@ -124,6 +124,36 @@ namespace OpenSearch.Client
         public AddIndexBlockDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
+    /// <summary>Descriptor for Analyze <para>https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</para></summary>
+    public partial class AnalyzeDescriptor
+        : RequestDescriptorBase<AnalyzeDescriptor, AnalyzeRequestParameters, IAnalyzeRequest>,
+            IAnalyzeRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesAnalyze;
+
+        /// <summary>/_analyze</summary>
+        public AnalyzeDescriptor()
+            : base() { }
+
+        /// <summary>/{index}/_analyze</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public AnalyzeDescriptor(IndexName index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        IndexName IAnalyzeRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>Index used to derive the analyzer. If specified, the `analyzer` or field parameter overrides this value. If no index is specified or the index does not have a default analyzer, the analyze API uses the standard analyzer.</summary>
+        public AnalyzeDescriptor Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public AnalyzeDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (IndexName)v));
+        // Request parameters
+    }
+
     /// <summary>Descriptor for DeleteComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
     public partial class DeleteComposableIndexTemplateDescriptor
         : RequestDescriptorBase<

@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.IndicesApi
 	public partial class IndicesNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public AnalyzeResponse Analyze(Func<AnalyzeDescriptor, IAnalyzeRequest> selector = null) => Analyze(selector.InvokeOrDefault(new AnalyzeDescriptor()));
-		/// <summary>
-		/// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public Task<AnalyzeResponse> AnalyzeAsync(Func<AnalyzeDescriptor, IAnalyzeRequest> selector = null, CancellationToken ct = default) => AnalyzeAsync(selector.InvokeOrDefault(new AnalyzeDescriptor()), ct);
-		/// <summary>
-		/// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public AnalyzeResponse Analyze(IAnalyzeRequest request) => DoRequest<IAnalyzeRequest, AnalyzeResponse>(request, request.RequestParameters);
-		/// <summary>
-		/// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public Task<AnalyzeResponse> AnalyzeAsync(IAnalyzeRequest request, CancellationToken ct = default) => DoRequestAsync<IAnalyzeRequest, AnalyzeResponse>(request, request.RequestParameters, ct);
-		/// <summary>
 		/// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = ""></a>

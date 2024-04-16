@@ -57,31 +57,6 @@ using OpenSearch.Net.Specification.IndicesApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for Analyze <para></para></summary>
-	public partial class AnalyzeDescriptor : RequestDescriptorBase<AnalyzeDescriptor, AnalyzeRequestParameters, IAnalyzeRequest>, IAnalyzeRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesAnalyze;
-		///<summary>/_analyze</summary>
-		public AnalyzeDescriptor(): base()
-		{
-		}
-
-		///<summary>/{index}/_analyze</summary>
-		///<param name = "index">Optional, accepts null</param>
-		public AnalyzeDescriptor(IndexName index): base(r => r.Optional("index", index))
-		{
-		}
-
-		// values part of the url path
-		IndexName IAnalyzeRequest.Index => Self.RouteValues.Get<IndexName>("index");
-		///<summary>The name of the index to scope the operation</summary>
-		public AnalyzeDescriptor Index(IndexName index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
-		///<summary>a shortcut into calling Index(typeof(TOther))</summary>
-		public AnalyzeDescriptor Index<TOther>()
-			where TOther : class => Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (IndexName)v));
-	// Request parameters
-	}
-
 	///<summary>Descriptor for ClearCache <para></para></summary>
 	public partial class ClearCacheDescriptor : RequestDescriptorBase<ClearCacheDescriptor, ClearCacheRequestParameters, IClearCacheRequest>, IClearCacheRequest
 	{

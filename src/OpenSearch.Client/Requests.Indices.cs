@@ -59,38 +59,6 @@ using OpenSearch.Net.Specification.IndicesApi;
 namespace OpenSearch.Client
 {
 	[InterfaceDataContract]
-	public partial interface IAnalyzeRequest : IRequest<AnalyzeRequestParameters>
-	{
-		[IgnoreDataMember]
-		IndexName Index
-		{
-			get;
-		}
-	}
-
-	///<summary>Request for Analyze <para></para></summary>
-	public partial class AnalyzeRequest : PlainRequestBase<AnalyzeRequestParameters>, IAnalyzeRequest
-	{
-		protected IAnalyzeRequest Self => this;
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesAnalyze;
-		///<summary>/_analyze</summary>
-		public AnalyzeRequest(): base()
-		{
-		}
-
-		///<summary>/{index}/_analyze</summary>
-		///<param name = "index">Optional, accepts null</param>
-		public AnalyzeRequest(IndexName index): base(r => r.Optional("index", index))
-		{
-		}
-
-		// values part of the url path
-		[IgnoreDataMember]
-		IndexName IAnalyzeRequest.Index => Self.RouteValues.Get<IndexName>("index");
-	// Request parameters
-	}
-
-	[InterfaceDataContract]
 	public partial interface IClearCacheRequest : IRequest<ClearCacheRequestParameters>
 	{
 		[IgnoreDataMember]
