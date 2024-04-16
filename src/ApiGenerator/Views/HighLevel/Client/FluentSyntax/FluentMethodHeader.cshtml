@@ -1,9 +1,9 @@
 @using ApiGenerator.Domain.Code.HighLevel.Methods
 @inherits ApiGenerator.CodeTemplatePage<FluentSyntaxView>
 @{
-	var response = !Model.Async ? Model.Syntax.ResponseName : string.Format("Task<{0}>", Model.Syntax.ResponseName);
-    var method = !Model.Async ? Model.Syntax.MethodName : string.Format("{0}Async", Model.Syntax.MethodName);
-    
+	var response = !Model.Async ? Model.Syntax.ResponseName : $"Task<{Model.Syntax.ResponseName}>";
+    var method = !Model.Async ? Model.Syntax.MethodName : $"{Model.Syntax.MethodName}Async";
+
     var methodGenerics = Model.Syntax.MethodGenerics;
     var descriptorArgs = Model.Syntax.DescriptorArguments();
     var selector = Model.Syntax.Selector;

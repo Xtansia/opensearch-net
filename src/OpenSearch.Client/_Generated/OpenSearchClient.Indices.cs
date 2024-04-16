@@ -63,6 +63,62 @@ namespace OpenSearch.Client.Specification.IndicesApi
             : base(client) { }
 
         /// <summary>
+        /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public AddIndexBlockResponse AddBlock(
+            Indices index,
+            IndexBlock block,
+            Func<AddIndexBlockDescriptor, IAddIndexBlockRequest> selector = null
+        ) =>
+            AddBlock(
+                selector.InvokeOrDefault(new AddIndexBlockDescriptor(index: index, block: block))
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<AddIndexBlockResponse> AddBlockAsync(
+            Indices index,
+            IndexBlock block,
+            Func<AddIndexBlockDescriptor, IAddIndexBlockRequest> selector = null,
+            CancellationToken ct = default
+        ) =>
+            AddBlockAsync(
+                selector.InvokeOrDefault(new AddIndexBlockDescriptor(index: index, block: block)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public AddIndexBlockResponse AddBlock(IAddIndexBlockRequest request) =>
+            DoRequest<IAddIndexBlockRequest, AddIndexBlockResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<AddIndexBlockResponse> AddBlockAsync(
+            IAddIndexBlockRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IAddIndexBlockRequest, AddIndexBlockResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>
@@ -254,7 +310,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
         /// </summary>
         public PutComposableIndexTemplateResponse PutComposableTemplate(
             Name name,
@@ -267,7 +323,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
         /// </summary>
         public Task<PutComposableIndexTemplateResponse> PutComposableTemplateAsync(
             Name name,
@@ -282,7 +338,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
         /// </summary>
         public PutComposableIndexTemplateResponse PutComposableTemplate(
             IPutComposableIndexTemplateRequest request
@@ -295,7 +351,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
         /// </summary>
         public Task<PutComposableIndexTemplateResponse> PutComposableTemplateAsync(
             IPutComposableIndexTemplateRequest request,

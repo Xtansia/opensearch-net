@@ -192,7 +192,7 @@ namespace OpenSearch.Client
         Name Snapshot { get; }
     }
 
-    /// <summary>Request for Snapshot</summary>
+    /// <summary>Request for Snapshot <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</para></summary>
     public partial class SnapshotRequest
         : PlainRequestBase<SnapshotRequestParameters>,
             ISnapshotRequest
@@ -258,7 +258,7 @@ namespace OpenSearch.Client
         Name RepositoryName { get; }
     }
 
-    /// <summary>Request for CreateRepository</summary>
+    /// <summary>Request for CreateRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</para></summary>
     public partial class CreateRepositoryRequest
         : PlainRequestBase<CreateRepositoryRequestParameters>,
             ICreateRepositoryRequest

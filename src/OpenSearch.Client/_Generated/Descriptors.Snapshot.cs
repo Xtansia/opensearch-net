@@ -144,7 +144,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for Snapshot</summary>
+    /// <summary>Descriptor for Snapshot <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</para></summary>
     public partial class SnapshotDescriptor
         : RequestDescriptorBase<SnapshotDescriptor, SnapshotRequestParameters, ISnapshotRequest>,
             ISnapshotRequest
@@ -184,7 +184,7 @@ namespace OpenSearch.Client
             Qs("wait_for_completion", waitforcompletion);
     }
 
-    /// <summary>Descriptor for CreateRepository</summary>
+    /// <summary>Descriptor for CreateRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</para></summary>
     public partial class CreateRepositoryDescriptor
         : RequestDescriptorBase<
             CreateRepositoryDescriptor,

@@ -66,19 +66,6 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	///</summary>
 	public partial class LowLevelIndicesNamespace : NamespacedClientProxy
 	{
-		///<summary>PUT on /{index}/_block/{block} <para></para></summary>
-		///<param name = "index">A comma separated list of indices to add a block to</param>
-		///<param name = "block">The block to add (one of read, write, read_only or metadata)</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse AddBlock<TResponse>(string index, string block, AddIndexBlockRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(PUT, Url($"{index:index}/_block/{block:block}"), null, RequestParams(requestParameters));
-		///<summary>PUT on /{index}/_block/{block} <para></para></summary>
-		///<param name = "index">A comma separated list of indices to add a block to</param>
-		///<param name = "block">The block to add (one of read, write, read_only or metadata)</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("indices.add_block", "index, block")]
-		public Task<TResponse> AddBlockAsync<TResponse>(string index, string block, AddIndexBlockRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(PUT, Url($"{index:index}/_block/{block:block}"), ctx, null, RequestParams(requestParameters));
 		///<summary>POST on /_analyze <para></para></summary>
 		///<param name = "body">Define analyzer/tokenizer parameters and the text on which the analysis should be performed</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

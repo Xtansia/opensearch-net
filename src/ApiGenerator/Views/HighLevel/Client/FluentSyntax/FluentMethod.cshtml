@@ -2,7 +2,7 @@
 @using ApiGenerator.Domain.Code.HighLevel.Methods
 @inherits ApiGenerator.CodeTemplatePage<FluentSyntaxView>
 @{
-	var method = !Model.Async ? Model.Syntax.MethodName : string.Format("{0}Async", Model.Syntax.MethodName);
+	var method = !Model.Async ? Model.Syntax.MethodName : $"{Model.Syntax.MethodName}Async";
     var asyncKeyword = Model.Syntax.InterfaceResponse && Model.Async ? "async " : string.Empty;
     var awaitKeyWord = Model.Syntax.InterfaceResponse && Model.Async ? "await ": string.Empty;
     var configureAwait = Model.Syntax.InterfaceResponse && Model.Async ? ".ConfigureAwait(false)" : string.Empty;

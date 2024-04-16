@@ -86,7 +86,7 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
                 var candidates = new[]
                 {
                     //only make index part the first argument if the descriptor is not generic on T.*?Document
-                    parts.FirstOrDefault(p => p.Type == "list" && (p.Name == "index" || p.Name == "indices") && !willInferFromDocument),
+                    parts.FirstOrDefault(p => p.Type == "list" && p.Name is "index" or "indices" && !willInferFromDocument),
                     parts.FirstOrDefault(p => p.Name == "name"),
                 };
                 requiredParts = candidates.Where(p=>p!= null).Take(1).ToList();

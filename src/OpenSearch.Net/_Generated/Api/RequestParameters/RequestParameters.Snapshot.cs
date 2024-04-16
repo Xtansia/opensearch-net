@@ -111,7 +111,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
     }
 
-    /// <summary>Request options for Snapshot</summary>
+    /// <summary>Request options for Snapshot <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</para></summary>
     public partial class SnapshotRequestParameters : RequestParameters<SnapshotRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
@@ -149,7 +149,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
     }
 
-    /// <summary>Request options for CreateRepository</summary>
+    /// <summary>Request options for CreateRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</para></summary>
     public partial class CreateRepositoryRequestParameters
         : RequestParameters<CreateRepositoryRequestParameters>
     {

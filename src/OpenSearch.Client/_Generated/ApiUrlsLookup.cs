@@ -174,6 +174,8 @@ namespace OpenSearch.Client
         internal static readonly ApiUrls NoNamespaceGetAllPits =
             new(new[] { "_search/point_in_time/_all" });
 
+        internal static readonly ApiUrls IndicesAddBlock = new(new[] { "{index}/_block/{block}" });
+
         internal static readonly ApiUrls IndicesDeleteComposableTemplate =
             new(new[] { "_index_template/{name}" });
 

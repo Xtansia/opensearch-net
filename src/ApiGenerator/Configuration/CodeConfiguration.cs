@@ -46,6 +46,7 @@ namespace ApiGenerator.Configuration
 			new("cluster.*"),
 			new("dangling_indices.*"),
 
+            new("indices.add_block"),
 			new("indices.{delete,exists,get,put}_index_template"),
 
 			new("ingest.*"),

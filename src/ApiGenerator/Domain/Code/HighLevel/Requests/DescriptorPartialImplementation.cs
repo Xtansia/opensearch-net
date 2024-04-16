@@ -51,11 +51,11 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
             var parts = Parts
                 .Where(p => !p.Required || alwaysGenerate.Contains(p.Name))
                 .Where(p => !string.IsNullOrEmpty(p.Name))
+                .OrderBy(p => p.Name)
                 .ToList();
             var returnType = CsharpNames.GenericOrNonGenericDescriptorName;
-            foreach (var part in parts)
+            foreach (var p in parts)
             {
-                var p = part;
                 var paramName = p.Name.ToPascalCase();
                 if (paramName.Length > 1)
                     paramName = paramName.Substring(0, 1).ToLowerInvariant() + paramName.Substring(1);

@@ -57,50 +57,6 @@ using OpenSearch.Net.Specification.IndicesApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for AddBlock <para></para></summary>
-	public partial class AddIndexBlockDescriptor : RequestDescriptorBase<AddIndexBlockDescriptor, AddIndexBlockRequestParameters, IAddIndexBlockRequest>, IAddIndexBlockRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesAddBlock;
-		///<summary>/{index}/_block/{block}</summary>
-		///<param name = "index">this parameter is required</param>
-		///<param name = "block">this parameter is required</param>
-		public AddIndexBlockDescriptor(Indices index, IndexBlock block): base(r => r.Required("index", index).Required("block", block))
-		{
-		}
-
-		///<summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
-		[SerializationConstructor]
-		protected AddIndexBlockDescriptor(): base()
-		{
-		}
-
-		// values part of the url path
-		Indices IAddIndexBlockRequest.Index => Self.RouteValues.Get<Indices>("index");
-		IndexBlock IAddIndexBlockRequest.Block => Self.RouteValues.Get<IndexBlock>("block");
-		///<summary>A comma separated list of indices to add a block to</summary>
-		public AddIndexBlockDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Required("index", v));
-		///<summary>a shortcut into calling Index(typeof(TOther))</summary>
-		public AddIndexBlockDescriptor Index<TOther>()
-			where TOther : class => Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (Indices)v));
-		///<summary>A shortcut into calling Index(Indices.All)</summary>
-		public AddIndexBlockDescriptor AllIndices() => Index(Indices.All);
-		// Request parameters
-		///<summary>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)</summary>
-		public AddIndexBlockDescriptor AllowNoIndices(bool? allownoindices = true) => Qs("allow_no_indices", allownoindices);
-		///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
-		public AddIndexBlockDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) => Qs("expand_wildcards", expandwildcards);
-		///<summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>
-		public AddIndexBlockDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) => Qs("ignore_unavailable", ignoreunavailable);
-		///<summary>Specify timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public AddIndexBlockDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
-		///<summary>Specify timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public AddIndexBlockDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
-		///<summary>Explicit operation timeout</summary>
-		public AddIndexBlockDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
-	}
-
 	///<summary>Descriptor for Analyze <para></para></summary>
 	public partial class AnalyzeDescriptor : RequestDescriptorBase<AnalyzeDescriptor, AnalyzeRequestParameters, IAnalyzeRequest>, IAnalyzeRequest
 	{

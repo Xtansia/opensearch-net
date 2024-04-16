@@ -169,6 +169,22 @@ namespace OpenSearch.Net
     }
 
     [StringEnum]
+    public enum IndicesAddBlockIndicesBlockOptions
+    {
+        [EnumMember(Value = "metadata")]
+        Metadata,
+
+        [EnumMember(Value = "read")]
+        Read,
+
+        [EnumMember(Value = "read_only")]
+        ReadOnly,
+
+        [EnumMember(Value = "write")]
+        Write
+    }
+
+    [StringEnum]
     public enum Level
     {
         [EnumMember(Value = "cluster")]
@@ -427,6 +443,7 @@ namespace OpenSearch.Net
             AddEnumStringResolver<ClusterStateMetric>(GetStringValue);
             AddEnumStringResolver<ExpandWildcards>(GetStringValue);
             AddEnumStringResolver<HealthStatus>(GetStringValue);
+            AddEnumStringResolver<IndicesAddBlockIndicesBlockOptions>(GetStringValue);
             AddEnumStringResolver<Level>(GetStringValue);
             AddEnumStringResolver<NodesInfoMetric>(GetStringValue);
             AddEnumStringResolver<NodesSampleType>(GetStringValue);
@@ -521,6 +538,19 @@ namespace OpenSearch.Net
                 _
                     => throw new ArgumentException(
                         $"'{enumValue.ToString()}' is not a valid value for enum 'HealthStatus'"
+                    )
+            };
+
+        public static string GetStringValue(this IndicesAddBlockIndicesBlockOptions enumValue) =>
+            enumValue switch
+            {
+                IndicesAddBlockIndicesBlockOptions.Metadata => "metadata",
+                IndicesAddBlockIndicesBlockOptions.Read => "read",
+                IndicesAddBlockIndicesBlockOptions.ReadOnly => "read_only",
+                IndicesAddBlockIndicesBlockOptions.Write => "write",
+                _
+                    => throw new ArgumentException(
+                        $"'{enumValue.ToString()}' is not a valid value for enum 'IndicesAddBlockIndicesBlockOptions'"
                     )
             };
 

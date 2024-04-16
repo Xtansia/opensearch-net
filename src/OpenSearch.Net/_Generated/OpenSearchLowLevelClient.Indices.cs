@@ -69,6 +69,43 @@ namespace OpenSearch.Net.Specification.IndicesApi
         internal LowLevelIndicesNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
+        /// <summary>PUT on /{index}/_block/{block} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">A comma separated list of indices to add a block to.</param>
+        /// <param name="block">The block to add (one of read, write, read_only or metadata).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse AddBlock<TResponse>(
+            string index,
+            IndicesAddBlockIndicesBlockOptions? block,
+            AddIndexBlockRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"{index:index}/_block/{block:block}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_block/{block} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">A comma separated list of indices to add a block to.</param>
+        /// <param name="block">The block to add (one of read, write, read_only or metadata).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.add_block", "index, block")]
+        public Task<TResponse> AddBlockAsync<TResponse>(
+            string index,
+            IndicesAddBlockIndicesBlockOptions? block,
+            AddIndexBlockRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"{index:index}/_block/{block:block}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>DELETE on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
         /// <param name="name">Name of the index template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -192,7 +229,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_index_template/{name}</summary>
+        /// <summary>PUT on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
         /// <param name="name">Index or template name.</param>
         /// <param name="body">The template definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -209,7 +246,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_index_template/{name}</summary>
+        /// <summary>PUT on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
         /// <param name="name">Index or template name.</param>
         /// <param name="body">The template definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

@@ -39,30 +39,30 @@ namespace OpenSearch.Client
 	/// </summary>
 	public class IndexBlock : IUrlParameter
 	{
-		private IndexBlock(string value) => Value = value;
+		private IndexBlock(IndicesAddBlockIndicesBlockOptions value) => Value = value;
 
-		public string Value { get; }
+		public IndicesAddBlockIndicesBlockOptions Value { get; }
 
-		public string GetString(IConnectionConfigurationValues settings) => Value;
+		public string GetString(IConnectionConfigurationValues settings) => Value.GetStringValue();
 
 		/// <summary>
 		/// Disable metadata changes, such as closing the index.
 		/// </summary>
-		public static IndexBlock Metadata { get; } = new IndexBlock("metadata");
+		public static IndexBlock Metadata { get; } = new(IndicesAddBlockIndicesBlockOptions.Metadata);
 
 		/// <summary>
 		/// Disable read operations.
 		/// </summary>
-		public static IndexBlock Read { get; } = new IndexBlock("read");
+		public static IndexBlock Read { get; } = new(IndicesAddBlockIndicesBlockOptions.Read);
 
 		/// <summary>
 		/// Disable write operations and metadata changes.
 		/// </summary>
-		public static IndexBlock ReadOnly { get; } = new IndexBlock("read_only");
+		public static IndexBlock ReadOnly { get; } = new(IndicesAddBlockIndicesBlockOptions.ReadOnly);
 
 		/// <summary>
 		/// Disable write operations. However, metadata changes are still allowed.
 		/// </summary>
-		public static IndexBlock Write { get; } = new IndexBlock("write");
+		public static IndexBlock Write { get; } = new(IndicesAddBlockIndicesBlockOptions.Write);
 	}
 }
