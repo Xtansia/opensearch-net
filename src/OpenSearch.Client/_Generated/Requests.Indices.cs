@@ -353,6 +353,103 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface ICloseIndexRequest : IRequest<CloseIndexRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for Close <para>https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</para></summary>
+    public partial class CloseIndexRequest
+        : PlainRequestBase<CloseIndexRequestParameters>,
+            ICloseIndexRequest
+    {
+        protected ICloseIndexRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClose;
+
+        /// <summary>/{index}/_close</summary>
+        /// <param name="index">this parameter is required</param>
+        public CloseIndexRequest(Indices index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected CloseIndexRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices ICloseIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
+    [InterfaceDataContract]
     public partial interface IDeleteComposableIndexTemplateRequest
         : IRequest<DeleteComposableIndexTemplateRequestParameters>
     {

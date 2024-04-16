@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.IndicesApi
 	public partial class IndicesNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</a>
-		/// </summary>
-		public CloseIndexResponse Close(Indices index, Func<CloseIndexDescriptor, ICloseIndexRequest> selector = null) => Close(selector.InvokeOrDefault(new CloseIndexDescriptor(index: index)));
-		/// <summary>
-		/// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</a>
-		/// </summary>
-		public Task<CloseIndexResponse> CloseAsync(Indices index, Func<CloseIndexDescriptor, ICloseIndexRequest> selector = null, CancellationToken ct = default) => CloseAsync(selector.InvokeOrDefault(new CloseIndexDescriptor(index: index)), ct);
-		/// <summary>
-		/// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</a>
-		/// </summary>
-		public CloseIndexResponse Close(ICloseIndexRequest request) => DoRequest<ICloseIndexRequest, CloseIndexResponse>(request, request.RequestParameters);
-		/// <summary>
-		/// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</a>
-		/// </summary>
-		public Task<CloseIndexResponse> CloseAsync(ICloseIndexRequest request, CancellationToken ct = default) => DoRequestAsync<ICloseIndexRequest, CloseIndexResponse>(request, request.RequestParameters, ct);
-		/// <summary>
 		/// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/</a>

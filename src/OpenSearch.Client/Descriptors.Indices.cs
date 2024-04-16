@@ -57,50 +57,6 @@ using OpenSearch.Net.Specification.IndicesApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for Close <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</para></summary>
-	public partial class CloseIndexDescriptor : RequestDescriptorBase<CloseIndexDescriptor, CloseIndexRequestParameters, ICloseIndexRequest>, ICloseIndexRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClose;
-		///<summary>/{index}/_close</summary>
-		///<param name = "index">this parameter is required</param>
-		public CloseIndexDescriptor(Indices index): base(r => r.Required("index", index))
-		{
-		}
-
-		///<summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
-		[SerializationConstructor]
-		protected CloseIndexDescriptor(): base()
-		{
-		}
-
-		// values part of the url path
-		Indices ICloseIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
-		///<summary>A comma separated list of indices to close</summary>
-		public CloseIndexDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Required("index", v));
-		///<summary>a shortcut into calling Index(typeof(TOther))</summary>
-		public CloseIndexDescriptor Index<TOther>()
-			where TOther : class => Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (Indices)v));
-		///<summary>A shortcut into calling Index(Indices.All)</summary>
-		public CloseIndexDescriptor AllIndices() => Index(Indices.All);
-		// Request parameters
-		///<summary>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)</summary>
-		public CloseIndexDescriptor AllowNoIndices(bool? allownoindices = true) => Qs("allow_no_indices", allownoindices);
-		///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
-		public CloseIndexDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) => Qs("expand_wildcards", expandwildcards);
-		///<summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>
-		public CloseIndexDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) => Qs("ignore_unavailable", ignoreunavailable);
-		///<summary>Specify timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public CloseIndexDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
-		///<summary>Specify timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public CloseIndexDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
-		///<summary>Explicit operation timeout</summary>
-		public CloseIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
-		///<summary>Sets the number of active shards to wait for before the operation returns.</summary>
-		public CloseIndexDescriptor WaitForActiveShards(string waitforactiveshards) => Qs("wait_for_active_shards", waitforactiveshards);
-	}
-
 	///<summary>Descriptor for Create <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/</para></summary>
 	public partial class CreateIndexDescriptor : RequestDescriptorBase<CreateIndexDescriptor, CreateIndexRequestParameters, ICreateIndexRequest>, ICreateIndexRequest
 	{

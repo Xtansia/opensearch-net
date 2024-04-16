@@ -269,6 +269,39 @@ namespace OpenSearch.Net.Specification.IndicesApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>POST on /{index}/_close <para>https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</para></summary>
+        /// <param name="index">Comma-separated list or wildcard expression of index names used to limit the request.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Close<TResponse>(
+            string index,
+            CloseIndexRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"{index:index}/_close"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_close <para>https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</para></summary>
+        /// <param name="index">Comma-separated list or wildcard expression of index names used to limit the request.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.close", "index")]
+        public Task<TResponse> CloseAsync<TResponse>(
+            string index,
+            CloseIndexRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"{index:index}/_close"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>DELETE on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
         /// <param name="name">Name of the index template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

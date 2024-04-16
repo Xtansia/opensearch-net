@@ -66,17 +66,6 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	///</summary>
 	public partial class LowLevelIndicesNamespace : NamespacedClientProxy
 	{
-		///<summary>POST on /{index}/_close <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</para></summary>
-		///<param name = "index">A comma separated list of indices to close</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Close<TResponse>(string index, CloseIndexRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(POST, Url($"{index:index}/_close"), null, RequestParams(requestParameters));
-		///<summary>POST on /{index}/_close <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</para></summary>
-		///<param name = "index">A comma separated list of indices to close</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("indices.close", "index")]
-		public Task<TResponse> CloseAsync<TResponse>(string index, CloseIndexRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(POST, Url($"{index:index}/_close"), ctx, null, RequestParams(requestParameters));
 		///<summary>PUT on /{index} <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/</para></summary>
 		///<param name = "index">The name of the index</param>
 		///<param name = "body">The configuration for the index (`settings` and `mappings`)</param>

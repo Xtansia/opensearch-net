@@ -283,6 +283,75 @@ namespace OpenSearch.Client
             Qs("wait_for_completion", waitforcompletion);
     }
 
+    /// <summary>Descriptor for Close <para>https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</para></summary>
+    public partial class CloseIndexDescriptor
+        : RequestDescriptorBase<
+            CloseIndexDescriptor,
+            CloseIndexRequestParameters,
+            ICloseIndexRequest
+        >,
+            ICloseIndexRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClose;
+
+        /// <summary>/{index}/_close</summary>
+        /// <param name="index">this parameter is required</param>
+        public CloseIndexDescriptor(Indices index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected CloseIndexDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Indices ICloseIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        /// <summary>Comma-separated list or wildcard expression of index names used to limit the request.</summary>
+        public CloseIndexDescriptor Index(Indices index) =>
+            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public CloseIndexDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (Indices)v));
+
+        /// <summary>A shortcut into calling Index(Indices.All)</summary>
+        public CloseIndexDescriptor AllIndices() => Index(Indices.All);
+
+        // Request parameters
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        public CloseIndexDescriptor AllowNoIndices(bool? allownoindices = true) =>
+            Qs("allow_no_indices", allownoindices);
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public CloseIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        public CloseIndexDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
+            Qs("expand_wildcards", expandwildcards);
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public CloseIndexDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
+            Qs("ignore_unavailable", ignoreunavailable);
+
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public CloseIndexDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public CloseIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        public CloseIndexDescriptor WaitForActiveShards(string waitforactiveshards) =>
+            Qs("wait_for_active_shards", waitforactiveshards);
+    }
+
     /// <summary>Descriptor for DeleteComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
     public partial class DeleteComposableIndexTemplateDescriptor
         : RequestDescriptorBase<
