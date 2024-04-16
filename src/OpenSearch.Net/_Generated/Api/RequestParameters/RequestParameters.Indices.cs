@@ -194,6 +194,66 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
+    /// <summary>Request options for Clone <para>https://opensearch.org/docs/latest/api-reference/index-apis/clone/</para></summary>
+    public partial class CloneIndexRequestParameters
+        : RequestParameters<CloneIndexRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public TimeSpan ClusterManagerTimeout
+        {
+            get => Q<TimeSpan>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public TimeSpan MasterTimeout
+        {
+            get => Q<TimeSpan>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</summary>
+        public TimeSpan TaskExecutionTimeout
+        {
+            get => Q<TimeSpan>("task_execution_timeout");
+            set => Q("task_execution_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
+        public bool? WaitForCompletion
+        {
+            get => Q<bool?>("wait_for_completion");
+            set => Q("wait_for_completion", value);
+        }
+    }
+
     /// <summary>Request options for DeleteComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
     public partial class DeleteComposableIndexTemplateRequestParameters
         : RequestParameters<DeleteComposableIndexTemplateRequestParameters>

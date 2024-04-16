@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.IndicesApi
 	public partial class IndicesNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/</a>
-		/// </summary>
-		public CloneIndexResponse Clone(IndexName index, IndexName target, Func<CloneIndexDescriptor, ICloneIndexRequest> selector = null) => Clone(selector.InvokeOrDefault(new CloneIndexDescriptor(index: index, target: target)));
-		/// <summary>
-		/// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/</a>
-		/// </summary>
-		public Task<CloneIndexResponse> CloneAsync(IndexName index, IndexName target, Func<CloneIndexDescriptor, ICloneIndexRequest> selector = null, CancellationToken ct = default) => CloneAsync(selector.InvokeOrDefault(new CloneIndexDescriptor(index: index, target: target)), ct);
-		/// <summary>
-		/// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/</a>
-		/// </summary>
-		public CloneIndexResponse Clone(ICloneIndexRequest request) => DoRequest<ICloneIndexRequest, CloneIndexResponse>(request, request.RequestParameters);
-		/// <summary>
-		/// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/</a>
-		/// </summary>
-		public Task<CloneIndexResponse> CloneAsync(ICloneIndexRequest request, CancellationToken ct = default) => DoRequestAsync<ICloneIndexRequest, CloneIndexResponse>(request, request.RequestParameters, ct);
-		/// <summary>
 		/// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</a>

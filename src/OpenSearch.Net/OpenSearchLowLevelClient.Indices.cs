@@ -66,21 +66,6 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	///</summary>
 	public partial class LowLevelIndicesNamespace : NamespacedClientProxy
 	{
-		///<summary>PUT on /{index}/_clone/{target} <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/</para></summary>
-		///<param name = "index">The name of the source index to clone</param>
-		///<param name = "target">The name of the target index to clone into</param>
-		///<param name = "body">The configuration for the target index (`settings` and `aliases`)</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Clone<TResponse>(string index, string target, PostData body, CloneIndexRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(PUT, Url($"{index:index}/_clone/{target:target}"), body, RequestParams(requestParameters));
-		///<summary>PUT on /{index}/_clone/{target} <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/</para></summary>
-		///<param name = "index">The name of the source index to clone</param>
-		///<param name = "target">The name of the target index to clone into</param>
-		///<param name = "body">The configuration for the target index (`settings` and `aliases`)</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("indices.clone", "index, target, body")]
-		public Task<TResponse> CloneAsync<TResponse>(string index, string target, PostData body, CloneIndexRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(PUT, Url($"{index:index}/_clone/{target:target}"), ctx, body, RequestParams(requestParameters));
 		///<summary>POST on /{index}/_close <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</para></summary>
 		///<param name = "index">A comma separated list of indices to close</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

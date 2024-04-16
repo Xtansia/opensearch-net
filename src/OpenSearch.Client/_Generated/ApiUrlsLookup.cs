@@ -182,6 +182,8 @@ namespace OpenSearch.Client
         internal static readonly ApiUrls IndicesClearCache =
             new(new[] { "_cache/clear", "{index}/_cache/clear" });
 
+        internal static readonly ApiUrls IndicesClone = new(new[] { "{index}/_clone/{target}" });
+
         internal static readonly ApiUrls IndicesDeleteComposableTemplate =
             new(new[] { "_index_template/{name}" });
 

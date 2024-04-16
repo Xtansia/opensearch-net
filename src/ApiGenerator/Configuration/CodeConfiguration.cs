@@ -49,6 +49,7 @@ namespace ApiGenerator.Configuration
             new("indices.add_block"),
             new("indices.analyze"),
             new("indices.clear_cache"),
+            new("indices.clone"),
 			new("indices.{delete,exists,get,put}_index_template"),
 
 			new("ingest.*"),

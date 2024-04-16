@@ -51,44 +51,8 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.IndicesApi
 {
-	///<summary>Request options for Clone <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/</para></summary>
-	public class CloneIndexRequestParameters : RequestParameters<CloneIndexRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
-		public override bool SupportsBody => true;
-		///<summary>Specify timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public TimeSpan MasterTimeout
-		{
-			get => Q<TimeSpan>("master_timeout");
-			set => Q("master_timeout", value);
-		}
-
-		///<summary>Specify timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public TimeSpan ClusterManagerTimeout
-		{
-			get => Q<TimeSpan>("cluster_manager_timeout");
-			set => Q("cluster_manager_timeout", value);
-		}
-
-		///<summary>Explicit operation timeout</summary>
-		public TimeSpan Timeout
-		{
-			get => Q<TimeSpan>("timeout");
-			set => Q("timeout", value);
-		}
-
-		///<summary>Set the number of active shards to wait for on the cloned index before the operation returns.</summary>
-		public string WaitForActiveShards
-		{
-			get => Q<string>("wait_for_active_shards");
-			set => Q("wait_for_active_shards", value);
-		}
-	}
-
 	///<summary>Request options for Close <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</para></summary>
-	public class CloseIndexRequestParameters : RequestParameters<CloseIndexRequestParameters>
+	public partial class CloseIndexRequestParameters : RequestParameters<CloseIndexRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
 		public override bool SupportsBody => false;
@@ -151,7 +115,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for Create <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/</para></summary>
-	public class CreateIndexRequestParameters : RequestParameters<CreateIndexRequestParameters>
+	public partial class CreateIndexRequestParameters : RequestParameters<CreateIndexRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
 		public override bool SupportsBody => true;
@@ -195,7 +159,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for Delete <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/delete-index/</para></summary>
-	public class DeleteIndexRequestParameters : RequestParameters<DeleteIndexRequestParameters>
+	public partial class DeleteIndexRequestParameters : RequestParameters<DeleteIndexRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
 		public override bool SupportsBody => false;
@@ -245,7 +209,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for DeleteAlias <para>https://opensearch.org/docs/latest/opensearch/rest-api/alias/</para></summary>
-	public class DeleteAliasRequestParameters : RequestParameters<DeleteAliasRequestParameters>
+	public partial class DeleteAliasRequestParameters : RequestParameters<DeleteAliasRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
 		public override bool SupportsBody => false;
@@ -274,7 +238,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for DeleteTemplate <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
-	public class DeleteIndexTemplateRequestParameters : RequestParameters<DeleteIndexTemplateRequestParameters>
+	public partial class DeleteIndexTemplateRequestParameters : RequestParameters<DeleteIndexTemplateRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
 		public override bool SupportsBody => false;
@@ -303,7 +267,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for Exists <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/</para></summary>
-	public class IndexExistsRequestParameters : RequestParameters<IndexExistsRequestParameters>
+	public partial class IndexExistsRequestParameters : RequestParameters<IndexExistsRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
 		public override bool SupportsBody => false;
@@ -351,7 +315,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for AliasExists <para>https://opensearch.org/docs/latest/opensearch/rest-api/alias/</para></summary>
-	public class AliasExistsRequestParameters : RequestParameters<AliasExistsRequestParameters>
+	public partial class AliasExistsRequestParameters : RequestParameters<AliasExistsRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
 		public override bool SupportsBody => false;
@@ -388,7 +352,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for TemplateExists <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
-	public class IndexTemplateExistsRequestParameters : RequestParameters<IndexTemplateExistsRequestParameters>
+	public partial class IndexTemplateExistsRequestParameters : RequestParameters<IndexTemplateExistsRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
 		public override bool SupportsBody => false;
@@ -425,7 +389,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 
 	///<summary>Request options for TypeExists <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/</para></summary>
 	///<remarks>Deprecated as of OpenSearch 2.0</remarks>
-	public class TypeExistsRequestParameters : RequestParameters<TypeExistsRequestParameters>
+	public partial class TypeExistsRequestParameters : RequestParameters<TypeExistsRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
 		public override bool SupportsBody => false;
@@ -462,7 +426,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for Flush <para></para></summary>
-	public class FlushRequestParameters : RequestParameters<FlushRequestParameters>
+	public partial class FlushRequestParameters : RequestParameters<FlushRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
 		public override bool SupportsBody => false;
@@ -512,7 +476,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for SyncedFlush <para></para></summary>
-	public class SyncedFlushRequestParameters : RequestParameters<SyncedFlushRequestParameters>
+	public partial class SyncedFlushRequestParameters : RequestParameters<SyncedFlushRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
 		public override bool SupportsBody => false;
@@ -542,7 +506,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for ForceMerge <para></para></summary>
-	public class ForceMergeRequestParameters : RequestParameters<ForceMergeRequestParameters>
+	public partial class ForceMergeRequestParameters : RequestParameters<ForceMergeRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
 		public override bool SupportsBody => false;
@@ -593,7 +557,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for Get <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/get-index/</para></summary>
-	public class GetIndexRequestParameters : RequestParameters<GetIndexRequestParameters>
+	public partial class GetIndexRequestParameters : RequestParameters<GetIndexRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
 		public override bool SupportsBody => false;
@@ -665,7 +629,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for GetAlias <para>https://opensearch.org/docs/latest/opensearch/rest-api/alias/</para></summary>
-	public class GetAliasRequestParameters : RequestParameters<GetAliasRequestParameters>
+	public partial class GetAliasRequestParameters : RequestParameters<GetAliasRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
 		public override bool SupportsBody => false;
@@ -702,7 +666,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for GetFieldMapping <para>https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</para></summary>
-	public class GetFieldMappingRequestParameters : RequestParameters<GetFieldMappingRequestParameters>
+	public partial class GetFieldMappingRequestParameters : RequestParameters<GetFieldMappingRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
 		public override bool SupportsBody => false;
@@ -754,7 +718,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for GetMapping <para>https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</para></summary>
-	public class GetMappingRequestParameters : RequestParameters<GetMappingRequestParameters>
+	public partial class GetMappingRequestParameters : RequestParameters<GetMappingRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
 		public override bool SupportsBody => false;
@@ -808,7 +772,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for GetSettings <para></para></summary>
-	public class GetIndexSettingsRequestParameters : RequestParameters<GetIndexSettingsRequestParameters>
+	public partial class GetIndexSettingsRequestParameters : RequestParameters<GetIndexSettingsRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
 		public override bool SupportsBody => false;
@@ -875,7 +839,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for GetTemplate <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
-	public class GetIndexTemplateRequestParameters : RequestParameters<GetIndexTemplateRequestParameters>
+	public partial class GetIndexTemplateRequestParameters : RequestParameters<GetIndexTemplateRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
 		public override bool SupportsBody => false;
@@ -919,7 +883,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for Open <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</para></summary>
-	public class OpenIndexRequestParameters : RequestParameters<OpenIndexRequestParameters>
+	public partial class OpenIndexRequestParameters : RequestParameters<OpenIndexRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
 		public override bool SupportsBody => false;
@@ -979,7 +943,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for PutAlias <para>https://opensearch.org/docs/latest/opensearch/rest-api/alias/</para></summary>
-	public class PutAliasRequestParameters : RequestParameters<PutAliasRequestParameters>
+	public partial class PutAliasRequestParameters : RequestParameters<PutAliasRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
 		public override bool SupportsBody => true;
@@ -1008,7 +972,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for PutMapping <para>https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</para></summary>
-	public class PutMappingRequestParameters : RequestParameters<PutMappingRequestParameters>
+	public partial class PutMappingRequestParameters : RequestParameters<PutMappingRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
 		public override bool SupportsBody => true;
@@ -1076,7 +1040,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for UpdateSettings <para></para></summary>
-	public class UpdateIndexSettingsRequestParameters : RequestParameters<UpdateIndexSettingsRequestParameters>
+	public partial class UpdateIndexSettingsRequestParameters : RequestParameters<UpdateIndexSettingsRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
 		public override bool SupportsBody => true;
@@ -1143,7 +1107,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for PutTemplate <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
-	public class PutIndexTemplateRequestParameters : RequestParameters<PutIndexTemplateRequestParameters>
+	public partial class PutIndexTemplateRequestParameters : RequestParameters<PutIndexTemplateRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
 		public override bool SupportsBody => true;
@@ -1180,7 +1144,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for RecoveryStatus <para></para></summary>
-	public class RecoveryStatusRequestParameters : RequestParameters<RecoveryStatusRequestParameters>
+	public partial class RecoveryStatusRequestParameters : RequestParameters<RecoveryStatusRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
 		public override bool SupportsBody => false;
@@ -1200,7 +1164,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for Refresh <para>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/get-documents/</para></summary>
-	public class RefreshRequestParameters : RequestParameters<RefreshRequestParameters>
+	public partial class RefreshRequestParameters : RequestParameters<RefreshRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
 		public override bool SupportsBody => false;
@@ -1230,7 +1194,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for Resolve <para></para></summary>
-	public class ResolveIndexRequestParameters : RequestParameters<ResolveIndexRequestParameters>
+	public partial class ResolveIndexRequestParameters : RequestParameters<ResolveIndexRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
 		public override bool SupportsBody => false;
@@ -1243,7 +1207,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for Rollover <para>https://opensearch.org/docs/latest/opensearch/data-streams/#step-5-rollover-a-data-stream</para></summary>
-	public class RolloverIndexRequestParameters : RequestParameters<RolloverIndexRequestParameters>
+	public partial class RolloverIndexRequestParameters : RequestParameters<RolloverIndexRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
 		public override bool SupportsBody => true;
@@ -1294,7 +1258,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for Segments <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/</para></summary>
-	public class SegmentsRequestParameters : RequestParameters<SegmentsRequestParameters>
+	public partial class SegmentsRequestParameters : RequestParameters<SegmentsRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
 		public override bool SupportsBody => false;
@@ -1331,7 +1295,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for ShardStores <para></para></summary>
-	public class IndicesShardStoresRequestParameters : RequestParameters<IndicesShardStoresRequestParameters>
+	public partial class IndicesShardStoresRequestParameters : RequestParameters<IndicesShardStoresRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
 		public override bool SupportsBody => false;
@@ -1368,7 +1332,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for Shrink <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/shrink-index/</para></summary>
-	public class ShrinkIndexRequestParameters : RequestParameters<ShrinkIndexRequestParameters>
+	public partial class ShrinkIndexRequestParameters : RequestParameters<ShrinkIndexRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
 		public override bool SupportsBody => true;
@@ -1404,7 +1368,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for SimulateIndexTemplate <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
-	public class SimulateIndexTemplateRequestParameters : RequestParameters<SimulateIndexTemplateRequestParameters>
+	public partial class SimulateIndexTemplateRequestParameters : RequestParameters<SimulateIndexTemplateRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
 		public override bool SupportsBody => true;
@@ -1440,7 +1404,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for SimulateTemplate <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
-	public class SimulateTemplateRequestParameters : RequestParameters<SimulateTemplateRequestParameters>
+	public partial class SimulateTemplateRequestParameters : RequestParameters<SimulateTemplateRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
 		public override bool SupportsBody => true;
@@ -1476,7 +1440,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for Split <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/split/</para></summary>
-	public class SplitIndexRequestParameters : RequestParameters<SplitIndexRequestParameters>
+	public partial class SplitIndexRequestParameters : RequestParameters<SplitIndexRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
 		public override bool SupportsBody => true;
@@ -1512,7 +1476,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for Stats <para>https://opensearch.org/docs/latest/opensearch/stats-api/</para></summary>
-	public class IndicesStatsRequestParameters : RequestParameters<IndicesStatsRequestParameters>
+	public partial class IndicesStatsRequestParameters : RequestParameters<IndicesStatsRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
 		public override bool SupportsBody => false;
@@ -1581,7 +1545,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for BulkAlias <para>https://opensearch.org/docs/latest/opensearch/rest-api/alias/</para></summary>
-	public class BulkAliasRequestParameters : RequestParameters<BulkAliasRequestParameters>
+	public partial class BulkAliasRequestParameters : RequestParameters<BulkAliasRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
 		public override bool SupportsBody => true;
@@ -1610,7 +1574,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	}
 
 	///<summary>Request options for ValidateQuery <para></para></summary>
-	public class ValidateQueryRequestParameters : RequestParameters<ValidateQueryRequestParameters>
+	public partial class ValidateQueryRequestParameters : RequestParameters<ValidateQueryRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
 		public override bool SupportsBody => true;

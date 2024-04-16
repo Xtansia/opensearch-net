@@ -228,6 +228,47 @@ namespace OpenSearch.Net.Specification.IndicesApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>PUT on /{index}/_clone/{target} <para>https://opensearch.org/docs/latest/api-reference/index-apis/clone/</para></summary>
+        /// <param name="index">Name of the source index to clone.</param>
+        /// <param name="target">Name of the target index to create.</param>
+        /// <param name="body">The configuration for the target index (`settings` and `aliases`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Clone<TResponse>(
+            string index,
+            string target,
+            PostData body,
+            CloneIndexRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"{index:index}/_clone/{target:target}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_clone/{target} <para>https://opensearch.org/docs/latest/api-reference/index-apis/clone/</para></summary>
+        /// <param name="index">Name of the source index to clone.</param>
+        /// <param name="target">Name of the target index to create.</param>
+        /// <param name="body">The configuration for the target index (`settings` and `aliases`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.clone", "index, target, body")]
+        public Task<TResponse> CloneAsync<TResponse>(
+            string index,
+            string target,
+            PostData body,
+            CloneIndexRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"{index:index}/_clone/{target:target}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>DELETE on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
         /// <param name="name">Name of the index template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

@@ -208,6 +208,57 @@ namespace OpenSearch.Client.Specification.IndicesApi
             );
 
         /// <summary>
+        /// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clone/">https://opensearch.org/docs/latest/api-reference/index-apis/clone/</a>
+        /// </summary>
+        public CloneIndexResponse Clone(
+            IndexName index,
+            IndexName target,
+            Func<CloneIndexDescriptor, ICloneIndexRequest> selector = null
+        ) =>
+            Clone(selector.InvokeOrDefault(new CloneIndexDescriptor(index: index, target: target)));
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clone/">https://opensearch.org/docs/latest/api-reference/index-apis/clone/</a>
+        /// </summary>
+        public Task<CloneIndexResponse> CloneAsync(
+            IndexName index,
+            IndexName target,
+            Func<CloneIndexDescriptor, ICloneIndexRequest> selector = null,
+            CancellationToken ct = default
+        ) =>
+            CloneAsync(
+                selector.InvokeOrDefault(new CloneIndexDescriptor(index: index, target: target)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clone/">https://opensearch.org/docs/latest/api-reference/index-apis/clone/</a>
+        /// </summary>
+        public CloneIndexResponse Clone(ICloneIndexRequest request) =>
+            DoRequest<ICloneIndexRequest, CloneIndexResponse>(request, request.RequestParameters);
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clone/">https://opensearch.org/docs/latest/api-reference/index-apis/clone/</a>
+        /// </summary>
+        public Task<CloneIndexResponse> CloneAsync(
+            ICloneIndexRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<ICloneIndexRequest, CloneIndexResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>

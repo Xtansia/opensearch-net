@@ -263,6 +263,96 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface ICloneIndexRequest : IRequest<CloneIndexRequestParameters>
+    {
+        [IgnoreDataMember]
+        IndexName Index { get; }
+
+        [IgnoreDataMember]
+        IndexName Target { get; }
+    }
+
+    /// <summary>Request for Clone <para>https://opensearch.org/docs/latest/api-reference/index-apis/clone/</para></summary>
+    public partial class CloneIndexRequest
+        : PlainRequestBase<CloneIndexRequestParameters>,
+            ICloneIndexRequest
+    {
+        protected ICloneIndexRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClone;
+
+        /// <summary>/{index}/_clone/{target}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="target">this parameter is required</param>
+        public CloneIndexRequest(IndexName index, IndexName target)
+            : base(r => r.Required("index", index).Required("target", target)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected CloneIndexRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        IndexName ICloneIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        [IgnoreDataMember]
+        IndexName ICloneIndexRequest.Target => Self.RouteValues.Get<IndexName>("target");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</summary>
+        public Time TaskExecutionTimeout
+        {
+            get => Q<Time>("task_execution_timeout");
+            set => Q("task_execution_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
+        public bool? WaitForCompletion
+        {
+            get => Q<bool?>("wait_for_completion");
+            set => Q("wait_for_completion", value);
+        }
+    }
+
+    [InterfaceDataContract]
     public partial interface IDeleteComposableIndexTemplateRequest
         : IRequest<DeleteComposableIndexTemplateRequestParameters>
     {

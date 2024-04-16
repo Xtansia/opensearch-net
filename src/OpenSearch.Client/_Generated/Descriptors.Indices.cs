@@ -219,6 +219,70 @@ namespace OpenSearch.Client
         public ClearCacheDescriptor Request(bool? request = true) => Qs("request", request);
     }
 
+    /// <summary>Descriptor for Clone <para>https://opensearch.org/docs/latest/api-reference/index-apis/clone/</para></summary>
+    public partial class CloneIndexDescriptor
+        : RequestDescriptorBase<
+            CloneIndexDescriptor,
+            CloneIndexRequestParameters,
+            ICloneIndexRequest
+        >,
+            ICloneIndexRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClone;
+
+        /// <summary>/{index}/_clone/{target}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="target">this parameter is required</param>
+        public CloneIndexDescriptor(IndexName index, IndexName target)
+            : base(r => r.Required("index", index).Required("target", target)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected CloneIndexDescriptor()
+            : base() { }
+
+        // values part of the url path
+        IndexName ICloneIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
+        IndexName ICloneIndexRequest.Target => Self.RouteValues.Get<IndexName>("target");
+
+        /// <summary>Name of the source index to clone.</summary>
+        public CloneIndexDescriptor Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public CloneIndexDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public CloneIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public CloneIndexDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</summary>
+        public CloneIndexDescriptor TaskExecutionTimeout(Time taskexecutiontimeout) =>
+            Qs("task_execution_timeout", taskexecutiontimeout);
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public CloneIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        public CloneIndexDescriptor WaitForActiveShards(string waitforactiveshards) =>
+            Qs("wait_for_active_shards", waitforactiveshards);
+
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
+        public CloneIndexDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
+            Qs("wait_for_completion", waitforcompletion);
+    }
+
     /// <summary>Descriptor for DeleteComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
     public partial class DeleteComposableIndexTemplateDescriptor
         : RequestDescriptorBase<
