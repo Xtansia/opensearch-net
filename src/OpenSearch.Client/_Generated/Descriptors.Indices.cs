@@ -154,6 +154,71 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
+    /// <summary>Descriptor for ClearCache <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
+    public partial class ClearCacheDescriptor
+        : RequestDescriptorBase<
+            ClearCacheDescriptor,
+            ClearCacheRequestParameters,
+            IClearCacheRequest
+        >,
+            IClearCacheRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClearCache;
+
+        /// <summary>/_cache/clear</summary>
+        public ClearCacheDescriptor()
+            : base() { }
+
+        /// <summary>/{index}/_cache/clear</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public ClearCacheDescriptor(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        Indices IClearCacheRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        /// <summary>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        public ClearCacheDescriptor Index(Indices index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public ClearCacheDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
+
+        /// <summary>A shortcut into calling Index(Indices.All)</summary>
+        public ClearCacheDescriptor AllIndices() => Index(Indices.All);
+
+        // Request parameters
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        public ClearCacheDescriptor AllowNoIndices(bool? allownoindices = true) =>
+            Qs("allow_no_indices", allownoindices);
+
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        public ClearCacheDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
+            Qs("expand_wildcards", expandwildcards);
+
+        /// <summary>If `true`, clears the fields cache. Use the `fields` parameter to clear the cache of specific fields only.</summary>
+        public ClearCacheDescriptor Fielddata(bool? fielddata = true) => Qs("fielddata", fielddata);
+
+        /// <summary>Comma-separated list of field names used to limit the `fielddata` parameter.</summary>
+        public ClearCacheDescriptor Fields(Fields fields) => Qs("fields", fields);
+
+        /// <summary>Comma-separated list of field names used to limit the `fielddata` parameter.</summary>
+        public ClearCacheDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
+            where T : class => Qs("fields", fields?.Select(e => (Field)e));
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public ClearCacheDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
+            Qs("ignore_unavailable", ignoreunavailable);
+
+        /// <summary>If `true`, clears the query cache.</summary>
+        public ClearCacheDescriptor Query(bool? query = true) => Qs("query", query);
+
+        /// <summary>If `true`, clears the request cache.</summary>
+        public ClearCacheDescriptor Request(bool? request = true) => Qs("request", request);
+    }
+
     /// <summary>Descriptor for DeleteComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
     public partial class DeleteComposableIndexTemplateDescriptor
         : RequestDescriptorBase<

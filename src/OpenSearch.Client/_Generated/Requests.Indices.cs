@@ -177,6 +177,92 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface IClearCacheRequest : IRequest<ClearCacheRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for ClearCache <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
+    public partial class ClearCacheRequest
+        : PlainRequestBase<ClearCacheRequestParameters>,
+            IClearCacheRequest
+    {
+        protected IClearCacheRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClearCache;
+
+        /// <summary>/_cache/clear</summary>
+        public ClearCacheRequest()
+            : base() { }
+
+        /// <summary>/{index}/_cache/clear</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public ClearCacheRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IClearCacheRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `true`, clears the fields cache. Use the `fields` parameter to clear the cache of specific fields only.</summary>
+        public bool? Fielddata
+        {
+            get => Q<bool?>("fielddata");
+            set => Q("fielddata", value);
+        }
+
+        /// <summary>Comma-separated list of field names used to limit the `fielddata` parameter.</summary>
+        public Fields Fields
+        {
+            get => Q<Fields>("fields");
+            set => Q("fields", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, clears the query cache.</summary>
+        public bool? Query
+        {
+            get => Q<bool?>("query");
+            set => Q("query", value);
+        }
+
+        /// <summary>If `true`, clears the request cache.</summary>
+        public bool? Request
+        {
+            get => Q<bool?>("request");
+            set => Q("request", value);
+        }
+    }
+
+    [InterfaceDataContract]
     public partial interface IDeleteComposableIndexTemplateRequest
         : IRequest<DeleteComposableIndexTemplateRequestParameters>
     {

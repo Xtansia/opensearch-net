@@ -171,6 +171,63 @@ namespace OpenSearch.Net.Specification.IndicesApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>POST on /_cache/clear <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ClearCacheForAll<TResponse>(
+            ClearCacheRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(POST, "_cache/clear", null, RequestParams(requestParameters));
+
+        /// <summary>POST on /_cache/clear <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.clear_cache", "")]
+        public Task<TResponse> ClearCacheForAllAsync<TResponse>(
+            ClearCacheRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_cache/clear",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_cache/clear <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ClearCache<TResponse>(
+            string index,
+            ClearCacheRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"{index:index}/_cache/clear"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_cache/clear <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.clear_cache", "index")]
+        public Task<TResponse> ClearCacheAsync<TResponse>(
+            string index,
+            ClearCacheRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"{index:index}/_cache/clear"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>DELETE on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
         /// <param name="name">Name of the index template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

@@ -66,26 +66,6 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	///</summary>
 	public partial class LowLevelIndicesNamespace : NamespacedClientProxy
 	{
-		///<summary>POST on /_cache/clear <para></para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse ClearCacheForAll<TResponse>(ClearCacheRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(POST, "_cache/clear", null, RequestParams(requestParameters));
-		///<summary>POST on /_cache/clear <para></para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("indices.clear_cache", "")]
-		public Task<TResponse> ClearCacheForAllAsync<TResponse>(ClearCacheRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(POST, "_cache/clear", ctx, null, RequestParams(requestParameters));
-		///<summary>POST on /{index}/_cache/clear <para></para></summary>
-		///<param name = "index">A comma-separated list of index name to limit the operation</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse ClearCache<TResponse>(string index, ClearCacheRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(POST, Url($"{index:index}/_cache/clear"), null, RequestParams(requestParameters));
-		///<summary>POST on /{index}/_cache/clear <para></para></summary>
-		///<param name = "index">A comma-separated list of index name to limit the operation</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("indices.clear_cache", "index")]
-		public Task<TResponse> ClearCacheAsync<TResponse>(string index, ClearCacheRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(POST, Url($"{index:index}/_cache/clear"), ctx, null, RequestParams(requestParameters));
 		///<summary>PUT on /{index}/_clone/{target} <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/</para></summary>
 		///<param name = "index">The name of the source index to clone</param>
 		///<param name = "target">The name of the target index to clone into</param>

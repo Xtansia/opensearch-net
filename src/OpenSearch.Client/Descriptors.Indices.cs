@@ -57,50 +57,6 @@ using OpenSearch.Net.Specification.IndicesApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for ClearCache <para></para></summary>
-	public partial class ClearCacheDescriptor : RequestDescriptorBase<ClearCacheDescriptor, ClearCacheRequestParameters, IClearCacheRequest>, IClearCacheRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClearCache;
-		///<summary>/_cache/clear</summary>
-		public ClearCacheDescriptor(): base()
-		{
-		}
-
-		///<summary>/{index}/_cache/clear</summary>
-		///<param name = "index">Optional, accepts null</param>
-		public ClearCacheDescriptor(Indices index): base(r => r.Optional("index", index))
-		{
-		}
-
-		// values part of the url path
-		Indices IClearCacheRequest.Index => Self.RouteValues.Get<Indices>("index");
-		///<summary>A comma-separated list of index name to limit the operation</summary>
-		public ClearCacheDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
-		///<summary>a shortcut into calling Index(typeof(TOther))</summary>
-		public ClearCacheDescriptor Index<TOther>()
-			where TOther : class => Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
-		///<summary>A shortcut into calling Index(Indices.All)</summary>
-		public ClearCacheDescriptor AllIndices() => Index(Indices.All);
-		// Request parameters
-		///<summary>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)</summary>
-		public ClearCacheDescriptor AllowNoIndices(bool? allownoindices = true) => Qs("allow_no_indices", allownoindices);
-		///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
-		public ClearCacheDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) => Qs("expand_wildcards", expandwildcards);
-		///<summary>Clear field data</summary>
-		public ClearCacheDescriptor Fielddata(bool? fielddata = true) => Qs("fielddata", fielddata);
-		///<summary>A comma-separated list of fields to clear when using the `fielddata` parameter (default: all)</summary>
-		public ClearCacheDescriptor Fields(Fields fields) => Qs("fields", fields);
-		///<summary>A comma-separated list of fields to clear when using the `fielddata` parameter (default: all)</summary>
-		public ClearCacheDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
-			where T : class => Qs("fields", fields?.Select(e => (Field)e));
-		///<summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>
-		public ClearCacheDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) => Qs("ignore_unavailable", ignoreunavailable);
-		///<summary>Clear query caches</summary>
-		public ClearCacheDescriptor Query(bool? query = true) => Qs("query", query);
-		///<summary>Clear request cache</summary>
-		public ClearCacheDescriptor Request(bool? request = true) => Qs("request", request);
-	}
-
 	///<summary>Descriptor for Clone <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/</para></summary>
 	public partial class CloneIndexDescriptor : RequestDescriptorBase<CloneIndexDescriptor, CloneIndexRequestParameters, ICloneIndexRequest>, ICloneIndexRequest
 	{

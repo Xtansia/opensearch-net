@@ -123,6 +123,77 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
+    /// <summary>Request options for ClearCache <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
+    public partial class ClearCacheRequestParameters
+        : RequestParameters<ClearCacheRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => false;
+
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `true`, clears the fields cache. Use the `fields` parameter to clear the cache of specific fields only.</summary>
+        public bool? Fielddata
+        {
+            get => Q<bool?>("fielddata");
+            set => Q("fielddata", value);
+        }
+
+        /// <summary>Comma-separated list of field names used to limit the `fielddata` parameter.</summary>
+        public string[] Fields
+        {
+            get => Q<string[]>("fields");
+            set => Q("fields", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.</summary>
+        public string[] Index
+        {
+            get => Q<string[]>("index");
+            set => Q("index", value);
+        }
+
+        /// <summary>If `true`, clears the query cache.</summary>
+        public bool? Query
+        {
+            get => Q<bool?>("query");
+            set => Q("query", value);
+        }
+
+        /// <summary>If `true`, clears the request cache.</summary>
+        public bool? Request
+        {
+            get => Q<bool?>("request");
+            set => Q("request", value);
+        }
+    }
+
     /// <summary>Request options for DeleteComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
     public partial class DeleteComposableIndexTemplateRequestParameters
         : RequestParameters<DeleteComposableIndexTemplateRequestParameters>

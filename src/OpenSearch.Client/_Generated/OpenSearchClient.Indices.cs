@@ -160,6 +160,54 @@ namespace OpenSearch.Client.Specification.IndicesApi
             );
 
         /// <summary>
+        /// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/">https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</a>
+        /// </summary>
+        public ClearCacheResponse ClearCache(
+            Indices index = null,
+            Func<ClearCacheDescriptor, IClearCacheRequest> selector = null
+        ) => ClearCache(selector.InvokeOrDefault(new ClearCacheDescriptor().Index(index: index)));
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/">https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</a>
+        /// </summary>
+        public Task<ClearCacheResponse> ClearCacheAsync(
+            Indices index = null,
+            Func<ClearCacheDescriptor, IClearCacheRequest> selector = null,
+            CancellationToken ct = default
+        ) =>
+            ClearCacheAsync(
+                selector.InvokeOrDefault(new ClearCacheDescriptor().Index(index: index)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/">https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</a>
+        /// </summary>
+        public ClearCacheResponse ClearCache(IClearCacheRequest request) =>
+            DoRequest<IClearCacheRequest, ClearCacheResponse>(request, request.RequestParameters);
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/">https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</a>
+        /// </summary>
+        public Task<ClearCacheResponse> ClearCacheAsync(
+            IClearCacheRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IClearCacheRequest, ClearCacheResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>
