@@ -302,6 +302,43 @@ namespace OpenSearch.Net.Specification.IndicesApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>PUT on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</para></summary>
+        /// <param name="index">Name of the index you wish to create.</param>
+        /// <param name="body">The configuration for the index (`settings` and `mappings`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Create<TResponse>(
+            string index,
+            PostData body,
+            CreateIndexRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"{index:index}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</para></summary>
+        /// <param name="index">Name of the index you wish to create.</param>
+        /// <param name="body">The configuration for the index (`settings` and `mappings`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.create", "index, body")]
+        public Task<TResponse> CreateAsync<TResponse>(
+            string index,
+            PostData body,
+            CreateIndexRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"{index:index}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>DELETE on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
         /// <param name="name">Name of the index template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

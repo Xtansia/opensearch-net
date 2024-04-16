@@ -352,6 +352,60 @@ namespace OpenSearch.Client
             Qs("wait_for_active_shards", waitforactiveshards);
     }
 
+    /// <summary>Descriptor for Create <para>https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</para></summary>
+    public partial class CreateIndexDescriptor
+        : RequestDescriptorBase<
+            CreateIndexDescriptor,
+            CreateIndexRequestParameters,
+            ICreateIndexRequest
+        >,
+            ICreateIndexRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesCreate;
+
+        /// <summary>/{index}</summary>
+        /// <param name="index">this parameter is required</param>
+        public CreateIndexDescriptor(IndexName index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected CreateIndexDescriptor()
+            : base() { }
+
+        // values part of the url path
+        IndexName ICreateIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>Name of the index you wish to create.</summary>
+        public CreateIndexDescriptor Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public CreateIndexDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public CreateIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public CreateIndexDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public CreateIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        public CreateIndexDescriptor WaitForActiveShards(string waitforactiveshards) =>
+            Qs("wait_for_active_shards", waitforactiveshards);
+    }
+
     /// <summary>Descriptor for DeleteComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
     public partial class DeleteComposableIndexTemplateDescriptor
         : RequestDescriptorBase<

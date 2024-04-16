@@ -57,45 +57,6 @@ using OpenSearch.Net.Specification.IndicesApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for Create <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/</para></summary>
-	public partial class CreateIndexDescriptor : RequestDescriptorBase<CreateIndexDescriptor, CreateIndexRequestParameters, ICreateIndexRequest>, ICreateIndexRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesCreate;
-		///<summary>/{index}</summary>
-		///<param name = "index">this parameter is required</param>
-		public CreateIndexDescriptor(IndexName index): base(r => r.Required("index", index))
-		{
-		}
-
-		///<summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
-		[SerializationConstructor]
-		protected CreateIndexDescriptor(): base()
-		{
-		}
-
-		// values part of the url path
-		IndexName ICreateIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
-		///<summary>The name of the index</summary>
-		public CreateIndexDescriptor Index(IndexName index) => Assign(index, (a, v) => a.RouteValues.Required("index", v));
-		///<summary>a shortcut into calling Index(typeof(TOther))</summary>
-		public CreateIndexDescriptor Index<TOther>()
-			where TOther : class => Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
-		// Request parameters
-		///<summary>Whether a type should be expected in the body of the mappings.</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0</remarks>
-		public CreateIndexDescriptor IncludeTypeName(bool? includetypename = true) => Qs("include_type_name", includetypename);
-		///<summary>Specify timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public CreateIndexDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
-		///<summary>Specify timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public CreateIndexDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
-		///<summary>Explicit operation timeout</summary>
-		public CreateIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
-		///<summary>Set the number of active shards to wait for before the operation returns.</summary>
-		public CreateIndexDescriptor WaitForActiveShards(string waitforactiveshards) => Qs("wait_for_active_shards", waitforactiveshards);
-	}
-
 	///<summary>Descriptor for Delete <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/delete-index/</para></summary>
 	public partial class DeleteIndexDescriptor : RequestDescriptorBase<DeleteIndexDescriptor, DeleteIndexRequestParameters, IDeleteIndexRequest>, IDeleteIndexRequest
 	{

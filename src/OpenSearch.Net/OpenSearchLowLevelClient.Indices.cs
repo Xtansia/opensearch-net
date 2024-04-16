@@ -66,19 +66,6 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	///</summary>
 	public partial class LowLevelIndicesNamespace : NamespacedClientProxy
 	{
-		///<summary>PUT on /{index} <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/</para></summary>
-		///<param name = "index">The name of the index</param>
-		///<param name = "body">The configuration for the index (`settings` and `mappings`)</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Create<TResponse>(string index, PostData body, CreateIndexRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(PUT, Url($"{index:index}"), body, RequestParams(requestParameters));
-		///<summary>PUT on /{index} <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/</para></summary>
-		///<param name = "index">The name of the index</param>
-		///<param name = "body">The configuration for the index (`settings` and `mappings`)</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("indices.create", "index, body")]
-		public Task<TResponse> CreateAsync<TResponse>(string index, PostData body, CreateIndexRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(PUT, Url($"{index:index}"), ctx, body, RequestParams(requestParameters));
 		///<summary>DELETE on /{index} <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/delete-index/</para></summary>
 		///<param name = "index">A comma-separated list of indices to delete; use `_all` or `*` string to delete all indices</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

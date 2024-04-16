@@ -450,6 +450,75 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface ICreateIndexRequest : IRequest<CreateIndexRequestParameters>
+    {
+        [IgnoreDataMember]
+        IndexName Index { get; }
+    }
+
+    /// <summary>Request for Create <para>https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</para></summary>
+    public partial class CreateIndexRequest
+        : PlainRequestBase<CreateIndexRequestParameters>,
+            ICreateIndexRequest
+    {
+        protected ICreateIndexRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesCreate;
+
+        /// <summary>/{index}</summary>
+        /// <param name="index">this parameter is required</param>
+        public CreateIndexRequest(IndexName index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected CreateIndexRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        IndexName ICreateIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
+    [InterfaceDataContract]
     public partial interface IDeleteComposableIndexTemplateRequest
         : IRequest<DeleteComposableIndexTemplateRequestParameters>
     {

@@ -61,7 +61,6 @@ namespace OpenSearch.Client
 		internal static ApiUrls NoNamespaceGetScript = new ApiUrls(new[]{"_scripts/{id}"});
 		internal static ApiUrls NoNamespaceSource = new ApiUrls(new[]{"{index}/_source/{id}"});
 		internal static ApiUrls NoNamespaceIndex = new ApiUrls(new[]{"{index}/_doc/{id}", "{index}/_doc"});
-		internal static ApiUrls IndicesCreate = new ApiUrls(new[]{"{index}"});
 		internal static ApiUrls IndicesDelete = new ApiUrls(new[]{"{index}"});
 		internal static ApiUrls IndicesDeleteAlias = new ApiUrls(new[]{"{index}/_alias/{name}"});
 		internal static ApiUrls IndicesDeleteTemplate = new ApiUrls(new[]{"_template/{name}"});

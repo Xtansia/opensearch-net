@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.IndicesApi
 	public partial class IndicesNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/</a>
-		/// </summary>
-		public CreateIndexResponse Create(IndexName index, Func<CreateIndexDescriptor, ICreateIndexRequest> selector = null) => Create(selector.InvokeOrDefault(new CreateIndexDescriptor(index: index)));
-		/// <summary>
-		/// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/</a>
-		/// </summary>
-		public Task<CreateIndexResponse> CreateAsync(IndexName index, Func<CreateIndexDescriptor, ICreateIndexRequest> selector = null, CancellationToken ct = default) => CreateAsync(selector.InvokeOrDefault(new CreateIndexDescriptor(index: index)), ct);
-		/// <summary>
-		/// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/</a>
-		/// </summary>
-		public CreateIndexResponse Create(ICreateIndexRequest request) => DoRequest<ICreateIndexRequest, CreateIndexResponse>(request, request.RequestParameters);
-		/// <summary>
-		/// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/</a>
-		/// </summary>
-		public Task<CreateIndexResponse> CreateAsync(ICreateIndexRequest request, CancellationToken ct = default) => DoRequestAsync<ICreateIndexRequest, CreateIndexResponse>(request, request.RequestParameters, ct);
-		/// <summary>
 		/// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/delete-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/delete-index/</a>
