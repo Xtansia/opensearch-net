@@ -317,11 +317,11 @@ Indices Indices { get; set; }</code></pre>
   <h4 id="OpenSearch_Client_IRestoreRequest_Partial" data-uid="OpenSearch.Client.IRestoreRequest.Partial">Partial</h4>
   <div class="markdown level1 summary"><p>Allow partial restore for indices that don't have snapshots of all shards available.</p>
 <p></p>
-By default, the entire restore operation will fail if one or more indices participating
+<p>By default, the entire restore operation will fail if one or more indices participating
 in the operation don’t have snapshots of all shards available. It can occur if some
 shards failed to snapshot for example. It is still possible to restore such indices
 by setting <a class="xref" href="OpenSearch.Client.IRestoreRequest.html#OpenSearch_Client_IRestoreRequest_Partial">Partial</a> to <code>true</code>. Only successfully snapshotted shards
-will be restored in this case and all missing shards will be recreated empty.
+will be restored in this case and all missing shards will be recreated empty.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

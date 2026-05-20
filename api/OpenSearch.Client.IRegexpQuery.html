@@ -159,11 +159,11 @@ string Flags { get; set; }</code></pre>
   <h4 id="OpenSearch_Client_IRegexpQuery_MaximumDeterminizedStates" data-uid="OpenSearch.Client.IRegexpQuery.MaximumDeterminizedStates">MaximumDeterminizedStates</h4>
   <div class="markdown level1 summary"><p>Maximum number of automaton states required for the query. Default is 10000.</p>
 <p></p>
-OpenSearch uses Apache Lucene internally to parse regular expressions.
-Lucene converts each regular expression to a finite automaton containing a number of determinized states.
+<p>OpenSearch uses Apache Lucene internally to parse regular expressions.
+Lucene converts each regular expression to a finite automaton containing a number of determinized states.</p>
 <p></p>
-You can use this parameter to prevent that conversion from unintentionally consuming too
-many resources. You may need to increase this limit to run complex regular expressions.
+<p>You can use this parameter to prevent that conversion from unintentionally consuming too
+many resources. You may need to increase this limit to run complex regular expressions.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

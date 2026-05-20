@@ -923,7 +923,7 @@ of the target field in search requests, and selected other APIs like field capab
   <div class="markdown level1 summary"><p>A field to index structured content such as IDs, email addresses, hostnames, status codes, zip codes or tags.
 Used for filtering, sorting, and for aggregations.</p>
 <p></p>
-Keyword fields are only searchable by their exact value.
+<p>Keyword fields are only searchable by their exact value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -5236,9 +5236,9 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
   <h4 id="OpenSearch_Client_SingleMappingSelector_1_SearchAsYouType_System_Func_OpenSearch_Client_SearchAsYouTypePropertyDescriptor__0__OpenSearch_Client_ISearchAsYouTypeProperty__" data-uid="OpenSearch.Client.SingleMappingSelector`1.SearchAsYouType(System.Func{OpenSearch.Client.SearchAsYouTypePropertyDescriptor{`0},OpenSearch.Client.ISearchAsYouTypeProperty})">SearchAsYouType(Func&lt;SearchAsYouTypePropertyDescriptor&lt;T&gt;, ISearchAsYouTypeProperty&gt;)</h4>
   <div class="markdown level1 summary"><p>A text-like field that is optimized to provide out-of-the-box support for the &quot;search as you type&quot; completion use case.</p>
 <p></p>
-It creates a series of subfields that are analyzed to index terms that can be efficiently matched by a query that
+<p>It creates a series of subfields that are analyzed to index terms that can be efficiently matched by a query that
 partially matches the entire indexed text value. Both prefix completion (i.e matching terms starting at the beginning of the input)
-and infix completion (i.e. matching terms at any position within the input) are supported.
+and infix completion (i.e. matching terms at any position within the input) are supported.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -5290,7 +5290,7 @@ and infix completion (i.e. matching terms at any position within the input) are 
 These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
 into a list of individual terms before being indexed.</p>
 <p></p>
-Text fields are not used for sorting and seldom used for aggregations
+<p>Text fields are not used for sorting and seldom used for aggregations</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

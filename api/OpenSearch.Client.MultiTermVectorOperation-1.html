@@ -216,13 +216,19 @@ to generate term vectors for</p>
   <h4 id="OpenSearch_Client_MultiTermVectorOperation_1_FieldStatistics" data-uid="OpenSearch.Client.MultiTermVectorOperation`1.FieldStatistics">FieldStatistics</h4>
   <div class="markdown level1 summary"><p>Whether to include field statistics. When set to <code>false</code>,</p>
 <p></p>
-- document count (how many documents contain this field)
+<ul>
+<li>document count (how many documents contain this field)</li>
+</ul>
 <p></p>
-- sum of document frequencies (the sum of document frequencies for all terms in this field)
+<ul>
+<li>sum of document frequencies (the sum of document frequencies for all terms in this field)</li>
+</ul>
 <p></p>
-- sum of total term frequencies (the sum of total term frequencies of each term in this field)
+<ul>
+<li>sum of total term frequencies (the sum of total term frequencies of each term in this field)</li>
+</ul>
 <p></p>
-will be omitted. Default is <code>true</code>.
+<p>will be omitted. Default is <code>true</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -511,12 +517,16 @@ Use <a class="xref" href="OpenSearch.Client.IMultiTermVectorOperation.html#OpenS
   <h4 id="OpenSearch_Client_MultiTermVectorOperation_1_TermStatistics" data-uid="OpenSearch.Client.MultiTermVectorOperation`1.TermStatistics">TermStatistics</h4>
   <div class="markdown level1 summary"><p>Whether to include term statistics. When set to <code>true</code>,</p>
 <p></p>
-- total term frequency (how often a term occurs in all documents)
+<ul>
+<li>total term frequency (how often a term occurs in all documents)</li>
+</ul>
 <p></p>
-- document frequency (the number of documents containing the current term)
+<ul>
+<li>document frequency (the number of documents containing the current term)</li>
+</ul>
 <p></p>
-will be returned. Default is <code>false</code> since
-term statistics can have a large performance impact.
+<p>will be returned. Default is <code>false</code> since
+term statistics can have a large performance impact.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

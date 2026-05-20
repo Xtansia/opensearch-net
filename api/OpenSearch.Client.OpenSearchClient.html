@@ -213,10 +213,13 @@
   </span>
   <a id="OpenSearch_Client_OpenSearchClient__ctor_" data-uid="OpenSearch.Client.OpenSearchClient.#ctor*"></a>
   <h4 id="OpenSearch_Client_OpenSearchClient__ctor_System_String_OpenSearch_Net_ApiKeyAuthenticationCredentials_" data-uid="OpenSearch.Client.OpenSearchClient.#ctor(System.String,OpenSearch.Net.ApiKeyAuthenticationCredentials)">OpenSearchClient(string, ApiKeyAuthenticationCredentials)</h4>
-  <div class="markdown level1 summary"><p>Sets up the client to communicate to OpenSearch Cloud using <code class="paramref">cloudId</code>,</p>
-<p><a class="xref" href="OpenSearch.Net.CloudConnectionPool.html">CloudConnectionPool</a> documentation for more information on how to obtain your Cloud Id</p>
-<p></p>If you want more control use the <a class="xref" href="OpenSearch.Client.OpenSearchClient.html#OpenSearch_Client_OpenSearchClient__ctor_OpenSearch_Client_IConnectionSettingsValues_">OpenSearchClient(IConnectionSettingsValues)</a> constructor and pass an instance of
-<a class="xref" href="OpenSearch.Client.OpenSearchClient.html#OpenSearch_Client_OpenSearchClient_ConnectionSettings">ConnectionSettings</a> that takes <code class="paramref">cloudId</code> in its constructor as well
+  <div class="markdown level1 summary"><pre><code>Sets up the client to communicate to OpenSearch Cloud using &lt;code class=&quot;paramref&quot;&gt;cloudId&lt;/code&gt;,
+
+&lt;p&gt;&lt;xref href=&quot;OpenSearch.Net.CloudConnectionPool&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; documentation for more information on how to obtain your Cloud Id&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+</code></pre>
+<p>If you want more control use the <a class="xref" href="OpenSearch.Client.OpenSearchClient.html#OpenSearch_Client_OpenSearchClient__ctor_OpenSearch_Client_IConnectionSettingsValues_">OpenSearchClient(IConnectionSettingsValues)</a> constructor and pass an instance of
+<a class="xref" href="OpenSearch.Client.OpenSearchClient.html#OpenSearch_Client_OpenSearchClient_ConnectionSettings">ConnectionSettings</a> that takes <code class="paramref">cloudId</code> in its constructor as well</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -254,10 +257,13 @@
   </span>
   <a id="OpenSearch_Client_OpenSearchClient__ctor_" data-uid="OpenSearch.Client.OpenSearchClient.#ctor*"></a>
   <h4 id="OpenSearch_Client_OpenSearchClient__ctor_System_String_OpenSearch_Net_BasicAuthenticationCredentials_" data-uid="OpenSearch.Client.OpenSearchClient.#ctor(System.String,OpenSearch.Net.BasicAuthenticationCredentials)">OpenSearchClient(string, BasicAuthenticationCredentials)</h4>
-  <div class="markdown level1 summary"><p>Sets up the client to communicate to OpenSearch Cloud using <code class="paramref">cloudId</code>,</p>
-<p><a class="xref" href="OpenSearch.Net.CloudConnectionPool.html">CloudConnectionPool</a> documentation for more information on how to obtain your Cloud Id</p>
-<p></p>If you want more control use the <a class="xref" href="OpenSearch.Client.OpenSearchClient.html#OpenSearch_Client_OpenSearchClient__ctor_OpenSearch_Client_IConnectionSettingsValues_">OpenSearchClient(IConnectionSettingsValues)</a> constructor and pass an instance of
-<a class="xref" href="OpenSearch.Client.OpenSearchClient.html#OpenSearch_Client_OpenSearchClient_ConnectionSettings">ConnectionSettings</a> that takes <code class="paramref">cloudId</code> in its constructor as well
+  <div class="markdown level1 summary"><pre><code>Sets up the client to communicate to OpenSearch Cloud using &lt;code class=&quot;paramref&quot;&gt;cloudId&lt;/code&gt;,
+
+&lt;p&gt;&lt;xref href=&quot;OpenSearch.Net.CloudConnectionPool&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; documentation for more information on how to obtain your Cloud Id&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+</code></pre>
+<p>If you want more control use the <a class="xref" href="OpenSearch.Client.OpenSearchClient.html#OpenSearch_Client_OpenSearchClient__ctor_OpenSearch_Client_IConnectionSettingsValues_">OpenSearchClient(IConnectionSettingsValues)</a> constructor and pass an instance of
+<a class="xref" href="OpenSearch.Client.OpenSearchClient.html#OpenSearch_Client_OpenSearchClient_ConnectionSettings">ConnectionSettings</a> that takes <code class="paramref">cloudId</code> in its constructor as well</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -870,10 +876,10 @@ Out of the box <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#Op
   <h4 id="OpenSearch_Client_OpenSearchClient_BulkAll__1_OpenSearch_Client_IBulkAllRequest___0__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.OpenSearchClient.BulkAll``1(OpenSearch.Client.IBulkAllRequest{``0},System.Threading.CancellationToken)">BulkAll&lt;T&gt;(IBulkAllRequest&lt;T&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>BulkAll is a generic helper that will partition any lazy stream of documents and send them to OpenSearch as concurrent bulk requests</p>
 <p></p>
-The index to target will be inferred from <code class="typeparamref">T</code>. If no default index has been mapped for <code class="typeparamref">T</code>
+<p>The index to target will be inferred from <code class="typeparamref">T</code>. If no default index has been mapped for <code class="typeparamref">T</code>
 using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">DefaultMappingFor&lt;TDocument&gt;(Func&lt;ClrTypeMappingDescriptor&lt;TDocument&gt;, IClrTypeMapping&lt;TDocument&gt;&gt;)</a> on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>, an exception will be thrown.
 Inference can be overridden using <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_Index">Index</a>, and in addition,
-an index can be specified for each document using <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_BufferToBulk">BufferToBulk</a>.
+an index can be specified for each document using <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_BufferToBulk">BufferToBulk</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -943,10 +949,10 @@ an index can be specified for each document using <a class="xref" href="OpenSear
   <h4 id="OpenSearch_Client_OpenSearchClient_BulkAll__1_System_Collections_Generic_IEnumerable___0__System_Func_OpenSearch_Client_BulkAllDescriptor___0__OpenSearch_Client_IBulkAllRequest___0___System_Threading_CancellationToken_" data-uid="OpenSearch.Client.OpenSearchClient.BulkAll``1(System.Collections.Generic.IEnumerable{``0},System.Func{OpenSearch.Client.BulkAllDescriptor{``0},OpenSearch.Client.IBulkAllRequest{``0}},System.Threading.CancellationToken)">BulkAll&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;BulkAllDescriptor&lt;T&gt;, IBulkAllRequest&lt;T&gt;&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>BulkAll is a generic helper that will partition any lazy stream of documents and send them to OpenSearch as concurrent bulk requests.</p>
 <p></p>
-The index to target will be inferred from <code class="typeparamref">T</code>. If no default index has been mapped for <code class="typeparamref">T</code>
+<p>The index to target will be inferred from <code class="typeparamref">T</code>. If no default index has been mapped for <code class="typeparamref">T</code>
 using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">DefaultMappingFor&lt;TDocument&gt;(Func&lt;ClrTypeMappingDescriptor&lt;TDocument&gt;, IClrTypeMapping&lt;TDocument&gt;&gt;)</a> on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>, an exception will be thrown.
 Inference can be overridden using <a class="xref" href="OpenSearch.Client.BulkAllDescriptor-1.html#OpenSearch_Client_BulkAllDescriptor_1_Index_OpenSearch_Client_IndexName_">Index(IndexName)</a>, and in addition,
-an index can be specified for each document using <a class="xref" href="OpenSearch.Client.BulkAllDescriptor-1.html#OpenSearch_Client_BulkAllDescriptor_1_BufferToBulk_System_Action_OpenSearch_Client_BulkDescriptor_System_Collections_Generic_IList__0___">BufferToBulk(Action&lt;BulkDescriptor, IList&lt;T&gt;&gt;)</a>.
+an index can be specified for each document using <a class="xref" href="OpenSearch.Client.BulkAllDescriptor-1.html#OpenSearch_Client_BulkAllDescriptor_1_BufferToBulk_System_Action_OpenSearch_Client_BulkDescriptor_System_Collections_Generic_IList__0___">BufferToBulk(Action&lt;BulkDescriptor, IList&lt;T&gt;&gt;)</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -5958,7 +5964,7 @@ https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-docum
   <h4 id="OpenSearch_Client_OpenSearchClient_Map__1_System_Func_OpenSearch_Client_PutMappingDescriptor___0__OpenSearch_Client_IPutMappingRequest__" data-uid="OpenSearch.Client.OpenSearchClient.Map``1(System.Func{OpenSearch.Client.PutMappingDescriptor{``0},OpenSearch.Client.IPutMappingRequest})">Map&lt;T&gt;(Func&lt;PutMappingDescriptor&lt;T&gt;, IPutMappingRequest&gt;)</h4>
   <div class="markdown level1 summary"><p>The put mapping API allows to register specific mapping definition for a specific type.</p>
 <p> </p>
-https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/
+<p><a href="https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/">https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
