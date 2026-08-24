@@ -433,6 +433,16 @@ is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest
       <h4><a class="xref" href="OpenSearch.Client.BulkResponseItemBase.html">BulkResponseItemBase</a></h4>
       <section><p>An item within a bulk response</p>
 </section>
+      <h4><a class="xref" href="OpenSearch.Client.BulkStreamDescriptor.html">BulkStreamDescriptor</a></h4>
+      <section><p>Descriptor for BulkStream</p>
+<p>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.BulkStreamRequest.html">BulkStreamRequest</a></h4>
+      <section><p>Request for BulkStream</p>
+<p>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.BulkStreamResponse.html">BulkStreamResponse</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.BulkUpdateDescriptor-2.html">BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt;</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.BulkUpdateOperation-2.html">BulkUpdateOperation&lt;TDocument, TPartialDocument&gt;</a></h4>
@@ -958,6 +968,20 @@ for cases where a simple custom tokenization is desired, and the overhead of use
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.Collector.html">Collector</a></h4>
       <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.CombinedFieldsQuery.html">CombinedFieldsQuery</a></h4>
+      <section><p>The combined_fields query supports searching multiple text fields as if their contents had been indexed
+into one combined field. The query analyzes the provided text before performing a search, and it scores
+documents using a term-centric approach that treats the matched fields as a single field.</p>
+<p></p>
+<p>All queried fields must have the same search analyzer. Only <code>text</code> fields are supported.</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.CombinedFieldsQueryDescriptor-1.html">CombinedFieldsQueryDescriptor&lt;T&gt;</a></h4>
+      <section><p>The combined_fields query supports searching multiple text fields as if their contents had been indexed
+into one combined field. The query analyzes the provided text before performing a search, and it scores
+documents using a term-centric approach that treats the matched fields as a single field.</p>
+<p></p>
+<p>All queried fields must have the same search analyzer. Only <code>text</code> fields are supported.</p>
+</section>
       <h4><a class="xref" href="OpenSearch.Client.CommonGramsTokenFilter.html">CommonGramsTokenFilter</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.CommonGramsTokenFilterDescriptor.html">CommonGramsTokenFilterDescriptor</a></h4>
@@ -2734,6 +2758,12 @@ Used for filtering, sorting, and for aggregations.</p>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.KnnQueryDescriptor-1.html">KnnQueryDescriptor&lt;T&gt;</a></h4>
       <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.KnnQueryRescoreContext.html">KnnQueryRescoreContext</a></h4>
+      <section><p>Configures rescoring of approximate k-NN search results using full-precision vectors.</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.KnnQueryRescoreContextDescriptor.html">KnnQueryRescoreContextDescriptor</a></h4>
+      <section><p>A descriptor for configuring k-NN query rescoring.</p>
+</section>
       <h4><a class="xref" href="OpenSearch.Client.KnnVectorProperty.html">KnnVectorProperty</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.KnnVectorPropertyDescriptor-1.html">KnnVectorPropertyDescriptor&lt;T&gt;</a></h4>
@@ -3686,11 +3716,11 @@ is not amplified by the greedier of the two by more then the backPressureFactor 
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.PutPipelineDescriptor.html">PutPipelineDescriptor</a></h4>
       <section><p>Descriptor for PutPipeline</p>
-<p>https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</p>
+<p>https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</p>
 </section>
       <h4><a class="xref" href="OpenSearch.Client.PutPipelineRequest.html">PutPipelineRequest</a></h4>
       <section><p>Request for PutPipeline</p>
-<p>https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</p>
+<p>https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</p>
 </section>
       <h4><a class="xref" href="OpenSearch.Client.PutPipelineResponse.html">PutPipelineResponse</a></h4>
       <section></section>
@@ -5083,6 +5113,14 @@ in scenarios where an OpenSearch API may accept more than one different input da
       <h4><a class="xref" href="OpenSearch.Client.WhitespaceTokenizerDescriptor.html">WhitespaceTokenizerDescriptor</a></h4>
       <section><p>A tokenizer of type whitespace that divides text at whitespace.</p>
 </section>
+      <h4><a class="xref" href="OpenSearch.Client.WildcardAttribute.html">WildcardAttribute</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.WildcardProperty.html">WildcardProperty</a></h4>
+      <section><p>A wildcard field stores values optimised for wildcard grep-like queries.</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.WildcardPropertyDescriptor-1.html">WildcardPropertyDescriptor&lt;T&gt;</a></h4>
+      <section><p>A wildcard field stores values optimised for wildcard grep-like queries.</p>
+</section>
       <h4><a class="xref" href="OpenSearch.Client.WildcardQuery.html">WildcardQuery</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.WildcardQueryDescriptor-1.html">WildcardQueryDescriptor&lt;T&gt;</a></h4>
@@ -5237,6 +5275,8 @@ In addition, parameters from and size may be set in order to truncate the result
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IBulkRequest.html">IBulkRequest</a></h4>
       <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.IBulkStreamRequest.html">IBulkStreamRequest</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IBulkUpdateOperation-2.html">IBulkUpdateOperation&lt;TDocument, TPartialDocument&gt;</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IBytesProcessor.html">IBytesProcessor</a></h4>
@@ -5358,6 +5398,13 @@ for cases where a simple custom tokenization is desired, and the overhead of use
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IClusterStatsRequest.html">IClusterStatsRequest</a></h4>
       <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.ICombinedFieldsQuery.html">ICombinedFieldsQuery</a></h4>
+      <section><p>The combined_fields query supports searching multiple text fields as if their contents had been indexed
+into one combined field. The query analyzes the provided text before performing a search, and it scores
+documents using a term-centric approach that treats the matched fields as a single field.</p>
+<p></p>
+<p>All queried fields must have the same search analyzer. Only <code>text</code> fields are supported.</p>
+</section>
       <h4><a class="xref" href="OpenSearch.Client.ICommonGramsTokenFilter.html">ICommonGramsTokenFilter</a></h4>
       <section><p>Token filter that generates bigrams for frequently occuring terms. Single terms are still indexed.</p>
 <p>Note, common_words or common_words_path field is required.</p>
@@ -6078,6 +6125,9 @@ Used for filtering, sorting, and for aggregations.</p>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IKnnQuery.html">IKnnQuery</a></h4>
       <section><p>An approximate k-NN query.</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.IKnnQueryRescoreContext.html">IKnnQueryRescoreContext</a></h4>
+      <section><p>Configures rescoring of approximate k-NN search results using full-precision vectors.</p>
 </section>
       <h4><a class="xref" href="OpenSearch.Client.IKnnVectorProperty.html">IKnnVectorProperty</a></h4>
       <section></section>
@@ -7090,6 +7140,9 @@ for <a class="xref" href="OpenSearch.Client.WeightedAverageAggregation.html">Wei
 </section>
       <h4><a class="xref" href="OpenSearch.Client.IWhitespaceTokenizer.html">IWhitespaceTokenizer</a></h4>
       <section><p>A tokenizer of type whitespace that divides text at whitespace.</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.IWildcardProperty.html">IWildcardProperty</a></h4>
+      <section><p>A wildcard field stores values optimised for wildcard grep-like queries.</p>
 </section>
       <h4><a class="xref" href="OpenSearch.Client.IWildcardQuery.html">IWildcardQuery</a></h4>
       <section></section>
